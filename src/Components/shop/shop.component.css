@@ -1,0 +1,121 @@
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 2px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+.navbar-links a:hover {
+  color: #56cfe1;
+  transition: 0.3s linear;
+}
+/* Banner Styles */
+.banner {
+  background-image: url("https://demo-kalles-4-1.myshopify.com/cdn/shop/collections/4_273f5935-e4ed-4997-a941-fa9cb2053da1.jpg?v=1653613629&width=1512");
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent background for readability */
+}
+
+/* Controls Styles */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4vh 7vw;
+}
+
+.filter-button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.view-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.view-icons i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sort-dropdown {
+  border-radius: 50px;
+  width: 10rem;
+  height: 2rem;
+  padding: 0 1rem;
+}
+
+.alignment {
+  display: flex;
+  gap: 3px;
+  border: 1px solid #878787;
+  padding: 2px;
+  
+  cursor: pointer;
+}
+.alignment:first-child {
+  flex-direction: column;
+  gap: 2px;
+}
+.alignment span {
+  height: 20px;
+  display: block;
+  width: 10px;
+  background: #878787;
+  transition: .3s linear  ;
+}
+
+.alignment:first-child span {
+  height: 5px;
+  width: 20px;
+}
+.alignment:hover{
+ border-color: #222222; 
+}
+.alignment:hover span{
+ background-color: #222222; 
+}

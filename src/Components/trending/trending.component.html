@@ -1,0 +1,70 @@
+<div>
+  <div class="heading box">
+    <h1>trending</h1>
+    <span>Top view in this week</span>
+  </div>
+  <div class="cards">
+    @for (product of ProductData; track $index) {
+
+    <div class="card" id="productCard"  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+      <div class="img" style="position: relative">
+        <div class="isNew" *ngIf="product.isNew">New</div>
+
+        <div class="discount" *ngIf="product.discountPercent">
+          -{{ product.discountPercent }}%
+        </div>
+        <img src="{{ product.img }}" alt="" />
+        <div class="hoverEffect">
+          <div class="icons">
+            <i class="bi bi-heart box"></i>
+            <i class="bi bi-shuffle"></i>
+          </div>
+          <div class="buttons">
+            <button>
+              <span>quick view</span>
+              <span> <i class="bi bi-eye"></i></span>
+            </button>
+            <button>
+              <span>quick shop</span>
+              <span>
+                <i class="bi bi-cart3"></i>
+              </span>
+            </button>
+          </div>
+          <div class="sizes">
+            @for (size of product.sizes; track $index) {
+            <span class="size">{{ size }},</span>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="details">
+        <div class="name">{{ product.name }}</div>
+        @if (product.discountPercent==0) {
+
+        <div class="price">
+          {{ product.price | currency }}
+        </div>
+        }@else {
+        <div class="price">
+          <span style="text-decoration: line-through">
+            {{ product.price | currency }}
+          </span>
+          <span style="color: red">{{
+            product.price - (product.discountPercent / 100) * product.price
+              | currency
+          }}</span>
+        </div>
+        }
+        <div class="varients">
+          @for (color of product.colors; track $index) {
+          <span class="color" [style.background-color]="color"></span>
+          }
+        </div>
+      </div>
+    </div>
+
+    }
+  </div>
+</div>
+ 
