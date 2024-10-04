@@ -27,6 +27,7 @@
   color: #56cfe1;
   transition: 0.3s linear;
 }
+
 /* Banner Styles */
 .banner {
   background-image: url("https://demo-kalles-4-1.myshopify.com/cdn/shop/collections/4_273f5935-e4ed-4997-a941-fa9cb2053da1.jpg?v=1653613629&width=1512");
@@ -48,12 +49,11 @@
   align-items: center;
   color: white;
   text-align: center;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Semi-transparent background for readability */
+  background: rgba(0,
+      0,
+      0,
+      0.5);
+  /* Semi-transparent background for readability */
 }
 
 /* Controls Styles */
@@ -94,28 +94,218 @@
   gap: 3px;
   border: 1px solid #878787;
   padding: 2px;
-  
+
   cursor: pointer;
 }
+
 .alignment:first-child {
   flex-direction: column;
   gap: 2px;
 }
+
 .alignment span {
   height: 20px;
   display: block;
   width: 10px;
   background: #878787;
-  transition: .3s linear  ;
+  transition: .3s linear;
 }
 
 .alignment:first-child span {
   height: 5px;
   width: 20px;
 }
-.alignment:hover{
- border-color: #222222; 
+
+.alignment:hover {
+  border-color: #222222;
 }
-.alignment:hover span{
- background-color: #222222; 
+
+.alignment:hover span {
+  background-color: #222222;
 }
+
+.cards {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  height: 30vh;
+  display: flex;
+  gap: 3vw;
+  top: 0;
+  padding: 16px;
+  border: 1px solid #0000003b;
+  color: RGB(135, 135, 135);
+}
+
+.card>div:first-child {
+  height: 100%;
+}
+
+.card img {
+  height: 100%;
+  width: unset;
+  object-fit: cover;
+}
+.card .details{
+  color: RGB(135, 135, 135);
+  margin-top: 0;
+  justify-content: center;
+}
+.card .buttons {
+  align-items: center;
+  justify-content: center;
+}
+
+.cards .buttons>button:first-child {
+  color: #56CFE0;
+  border: 1px solid #56CFE0;
+
+}
+
+.cards .buttons>button:last-child {
+  color: #fff;
+  border-color: #56CFE0;
+  background: #56CFE0;
+
+}
+
+.activeCol{ 
+  border-color:black;
+}
+.activeCol span{
+  background: black;
+}
+
+/* style to show the cards in 2 column */
+.showIn2Column{
+  grid-template-columns: 1fr 1fr !important;
+}
+.showIn2Column .card {
+  height: 90vh;
+  display: block;
+  gap: 3vw;
+  top: 0;
+  padding: 16px;
+  border: none;
+  color: RGB(135, 135, 135);
+}
+.showIn2Column .card>div:first-child {
+  height: 90%;
+}
+.showIn2Column img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+/* style to show the cards in 3 column */
+.showIn3Column{
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2vh 0;
+}
+
+.showIn3Column .card {
+  height: 65vh;
+  display: block;
+  gap: 3vw;
+  top: 0;
+  padding: 16px;
+  border: none;
+  color: RGB(135, 135, 135);
+}
+.showIn3Column .card>div:first-child {
+  height: 90%;
+}
+.showIn3Column img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+/* style to show the cards in 4 column */
+.showIn4Column{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 4vh 0;
+}
+
+.showIn4Column .card {
+  height: 45vh;
+  display: block;
+  gap: 3vw;
+  top: 0;
+  padding: 16px;
+  border: none;
+  color: RGB(135, 135, 135);
+}
+.showIn4Column .card>div:first-child {
+  height: 90%;
+}
+.showIn4Column .card img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+/* style to show the cards in 4 column */
+.showIn5Column{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap:6vh 0;
+} 
+
+.showIn5Column .card {
+  height: 35vh;
+  display: block;
+  gap: 3vw;
+  top: 0;
+  padding: 16px;
+  border: none;
+  font-size: 15px;
+  color: RGB(135, 135, 135);
+  font-weight: normal;
+}
+.showIn5Column .card>div:first-child {
+  height: 90%;
+}
+.showIn5Column .details .name{
+  font-weight: normal !important;
+}
+.showIn5Column .card img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+/* style to show the cards in 4 column */
+.showIn6Column{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap:6vh 0;
+} 
+
+.showIn6Column .card {
+  height: 30vh;
+  font-size: 14px;
+  display: block;
+  gap: 3vw;
+  top: 0;
+  padding: 16px;
+  border: none;
+  font-weight: normal;
+  color: RGB(135, 135, 135);
+}
+.showIn6Column .card>div:first-child {
+  height: 90%;
+}
+.showIn6Column .details .name{
+  font-weight: normal !important;
+}
+.showIn6Column .card img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+
+ 

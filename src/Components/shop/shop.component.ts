@@ -1,56 +1,77 @@
-import {   Component } from '@angular/core';
-import ProductData from '../../../src/ProductDatas' 
+import { Component } from '@angular/core';
+import ProductData from '../../../src/ProductDatas'
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import {gsap } from "gsap"
+import { gsap } from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FormsModule } from '@angular/forms';
 gsap.registerPlugin(ScrollTrigger);
 @Component({
-  selector: 'app-shop', 
+  selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
-  ProductData:any[] = ProductData
-  
+  isListed: boolean = true
+  showIn2Column = false
+  showIn3Column = false
+  showIn4Column = false
+  showIn5Column = false
+  showIn6Column = false
 
-  ngAfterViewInit(){
-    gsap.to("#productCard",{
-      opacity:1,
-      duration:3,   
-      y:'-5rem', 
-      
-      stagger:.001,
-      scrollTrigger:{
-        trigger:"#productCard", 
-        start: 'top 80%',     
-         end: 'top 100%', 
-         toggleActions: 'play none none reverse',  
-            scrub: 1,
-            // markers:true
-      }
-    }) 
-    this.onMouseEnter()
+
+  ProductData: any = ProductData;
+
+  showInList() {
+    this.isListed = true
+    this.showIn2Column = false
+    this.showIn3Column = false
+    this.showIn4Column = false
+    this.showIn5Column = false
+    this.showIn6Column = false
+
   }
-  onMouseEnter(){
-console.log(this.onMouseEnter)
-gsap.from(".bi-heart",{
- color:"red",
- duration:1,
- x:-50,
- opacity:0, 
-})
+  showInColumn2() {
+    this.isListed = false
+    this.showIn2Column = true
+    this.showIn3Column = false
+    this.showIn4Column = false
+    this.showIn5Column = false
+    this.showIn6Column = false
   }
-  onMouseLeave(){
-    gsap.to(".bi-heart",{
-      color:"white",
-      duration:1,
-      x:0,
-      opacity:1, 
-     })
+  showInColumn3() {
+    this.isListed = false
+    this.showIn2Column = false
+    this.showIn3Column = true
+    this.showIn4Column = false
+    this.showIn5Column = false
+    this.showIn6Column = false
+
   }
- 
-   
-  
+  showInColumn4() {
+    this.isListed = false
+    this.showIn2Column = false
+    this.showIn3Column = false
+    this.showIn4Column = true
+    this.showIn5Column = false
+    this.showIn6Column = false
+  }
+  showInColumn5() {
+    this.isListed = false
+    this.showIn2Column = false
+    this.showIn3Column = false
+    this.showIn4Column = false
+    this.showIn5Column = true
+    this.showIn6Column = false
+  }
+  showInColumn6() {
+    this.isListed = false
+    this.showIn2Column = false
+    this.showIn3Column = false
+    this.showIn4Column = false
+    this.showIn5Column = false
+    this.showIn6Column = true
+  }
+
 }

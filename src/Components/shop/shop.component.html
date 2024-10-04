@@ -23,40 +23,42 @@
   <div class="controls">
     <button class="filter-button"><i class="bi bi-funnel"></i> Filter</button>
     <div class="view-icons">
-      <div class="alignment">
+      <div class="alignment inList" (click)="showInList()" [ngClass]="{ 'activeCol': isListed }">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="alignment">
+      <div class="alignment" (click)="showInColumn2()" [ngClass]="{ 'activeCol': showIn2Column }">
         <span></span>
         <span></span>
       </div>
-      <div class="alignment">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="alignment">
-        <span></span>
+      <div class="alignment" (click)="showInColumn3()" [ngClass]="{ 'activeCol': showIn3Column }">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="alignment">
-        <span></span>
+      <div class="alignment" (click)="showInColumn4()" [ngClass]="{ 'activeCol': showIn4Column }">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="alignment">
+      <div class="alignment" (click)="showInColumn5()" [ngClass]="{ 'activeCol': showIn5Column }">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
       </div>
+      <div class="alignment" (click)="showInColumn6()" [ngClass]="{ 'activeCol': showIn6Column }">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
     </div>
     <select class="sort-dropdown">
       <option selected>Featured</option>
@@ -67,10 +69,10 @@
   </div>
 </div>
 
-<div class="cards">
+<div class="cards" [ngClass]="showIn2Column?'showIn2Column':showIn3Column?'showIn3Column':showIn4Column?'showIn4Column':showIn5Column?'showIn5Column':showIn6Column?'showIn6Column':''" >
   @for (product of ProductData; track $index) {
 
-  <div class="card" id="productCard"  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <div class="card" id="productCar d" style="opacity: 1;">
     <div class="img" style="position: relative">
       <div class="isNew" *ngIf="product.isNew">New</div>
 
@@ -83,7 +85,7 @@
           <i class="bi bi-heart box"></i>
           <i class="bi bi-shuffle"></i>
         </div>
-        <div class="buttons">
+        <div class="buttons" *ngIf="!isListed" >
           <button>
             <span>quick view</span>
             <span> <i class="bi bi-eye"></i></span>
@@ -103,12 +105,13 @@
       </div>
     </div>
     <div class="details">
-      <div class="name">{{ product.name }}</div>
+      <div class="name" style="color: black; font-weight: bold;">{{ product.name }}</div>
       @if (product.discountPercent==0) {
 
       <div class="price">
         {{ product.price | currency }}
       </div>
+
       }@else {
       <div class="price">
         <span style="text-decoration: line-through">
@@ -116,15 +119,31 @@
         </span>
         <span style="color: red">{{
           product.price - (product.discountPercent / 100) * product.price
-            | currency
-        }}</span>
+          | currency
+          }}</span>
       </div>
       }
+      <div class="description" style="font-size: 14px;" *ngIf="isListed">
+
+        {{ product.description }}
+      </div>
       <div class="varients">
         @for (color of product.colors; track $index) {
         <span class="color" [style.background-color]="color"></span>
         }
       </div>
+    </div>
+    <div class="buttons" *ngIf="isListed" >
+      <button>
+        <span>quick view</span>
+        <span> <i class="bi bi-eye"></i></span>
+      </button>
+      <button>
+        <span>quick shop</span>
+        <span>
+          <i class="bi bi-cart3"></i>
+        </span>
+      </button>
     </div>
   </div>
 
