@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import ProductData from '../../../src/ProductDatas'
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { gsap } from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FormsModule } from '@angular/forms';
-import { FilterComponent } from './filter/filter.component';
 
 import { MatSliderModule } from '@angular/material/slider';
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule, FormsModule, FilterComponent, FormsModule, MatSliderModule],
+  imports: [CommonModule, FormsModule, FormsModule, MatSliderModule],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
+  constructor() {
+  }
   isListed: boolean = true
   showIn2Column = false
   showIn3Column = false
@@ -24,6 +25,8 @@ export class ShopComponent {
   showIn6Column = false
   isFilterDisplayed = false
   isFilterActive = false
+  inStockActive = false
+  inOutOfStockActive = false
 
 
   ProductData: any = ProductData;
@@ -79,6 +82,7 @@ export class ShopComponent {
     this.showIn6Column = true
   }
   toggleFilter() {
+
     this.isFilterDisplayed = !this.isFilterDisplayed
     if (this.isFilterDisplayed) {
 
@@ -106,14 +110,9 @@ export class ShopComponent {
   minPrice: number = 0;
   maxPrice: number = 149;
 
-  constructor() {
 
-  }
 
-  applyFilters() {
-    // Handle filter logic here
-    console.log('Filters applied');
-  }
+
 
   animatOnMouseEnter() {
     gsap.to(".close-btn", {
@@ -129,4 +128,60 @@ export class ShopComponent {
     })
 
   }
+  // from here i am goint to manage filter funtion 
+  // ##############################################################?/?
+  // for in stuck function
+  inStockCount = ProductData.filter((item) => {
+    return (item.quantity != 0)
+  }).length
+  findInStockProduct() {
+    this.inOutOfStockActive = false
+    this.inStockActive = !this.inStockActive
+    if (this.inStockActive) {
+      this.ProductData = ProductData.filter((item) => {
+        return (item.quantity != 0)
+      })
+      console.log(this.ProductData)
+      this.isFilterActive = false
+    } else {
+      this.ProductData = ProductData
+    }
+  }
+  //#########################################################################################
+  // for out of stuck function
+  outOfStockCount = (ProductData.filter((item) => {
+    return (item.quantity == 0)
+  })).length
+  findInOutOfStockActive() {
+    this.inStockActive = false
+    this.inOutOfStockActive = !this.inOutOfStockActive
+
+    if (this.inOutOfStockActive) {
+      this.ProductData = ProductData.filter((item) => {
+        return (item.quantity == 0)
+      })
+      console.log(this.ProductData)
+      this.isFilterActive = false
+
+    } else {
+      this.ProductData = ProductData
+      console.log(this.ProductData)
+
+    }
+  }
+  //#########################################################################################
+  // for filter on the basis of price
+  filterByPrice() { 
+    this.ProductData = ProductData.filter((item) => {
+      let actualPrice = item.price
+      if (item.discountPercent != 0) {
+        actualPrice = item.price - (item.discountPercent / 100) * item.price
+      }
+      console.log(actualPrice)
+      return (actualPrice >= this.minPrice && actualPrice <= this.maxPrice)
+    })
+    this.isFilterActive = false
+  }
+
+
 }

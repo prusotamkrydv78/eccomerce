@@ -58,7 +58,7 @@
         <span></span>
         <span></span>
       </div>
-      
+
     </div>
     <select class="sort-dropdown">
       <option selected>Featured</option>
@@ -69,7 +69,8 @@
   </div>
 </div>
 
-<div class="cards" [ngClass]="showIn2Column?'showIn2Column':showIn3Column?'showIn3Column':showIn4Column?'showIn4Column':showIn5Column?'showIn5Column':showIn6Column?'showIn6Column':''" >
+<div class="cards"
+  [ngClass]="showIn2Column?'showIn2Column':showIn3Column?'showIn3Column':showIn4Column?'showIn4Column':showIn5Column?'showIn5Column':showIn6Column?'showIn6Column':''">
   @for (product of ProductData; track $index) {
 
   <div class="card" id="productCar d" style="opacity: 1;">
@@ -85,7 +86,7 @@
           <i class="bi bi-heart box"></i>
           <i class="bi bi-shuffle"></i>
         </div>
-        <div class="buttons" *ngIf="!isListed" >
+        <div class="buttons" *ngIf="!isListed">
           <button>
             <span>quick view</span>
             <span> <i class="bi bi-eye"></i></span>
@@ -133,7 +134,7 @@
         }
       </div>
     </div>
-    <div class="buttons" *ngIf="isListed" >
+    <div class="buttons" *ngIf="isListed">
       <button>
         <span>quick view</span>
         <span> <i class="bi bi-eye"></i></span>
@@ -150,26 +151,27 @@
   }
 </div>
 <div class="filter" *ngIf="isFilterDisplayed" (click)="toggleFilter()">
-  
-  <div class="filter-sidebar"   (click)="stopEventPropagation($event)">
+
+  <div class="filter-sidebar" (click)="stopEventPropagation($event)">
     <div class="filter-header">
       <h4>FILTER</h4>
-      <button class="close-btn" (click)="closeFilter()" (mouseenter)="animatOnMouseEnter()" (mouseleave)="animatOnMouseLeave()"><i class="bi bi-x-lg"></i></button>
+      <button class="close-btn" (click)="closeFilter()" (mouseenter)="animatOnMouseEnter()"
+        (mouseleave)="animatOnMouseLeave()"><i class="bi bi-x-lg"></i></button>
     </div>
-  
+
     <!-- Availability -->
     <div class="filter-section">
       <h5>Availability</h5>
       <label>
-        <input type="checkbox" name="availability" value="in-stock" />
-        In Stock (45)
+        <input type="checkbox" name="availability" value="in-stock" [(ngModel)]="inStockActive" (click)="findInStockProduct()" />
+        In Stock ({{inStockCount}})
       </label>
       <label>
-        <input type="checkbox" name="availability" value="out-of-stock" />
-        Out of Stock (13)
+        <input type="checkbox" name="availability" [(ngModel)]="inOutOfStockActive" (click)="findInOutOfStockActive()"    value="out-of-stock" />
+        Out of Stock ({{outOfStockCount}})
       </label>
     </div>
-  
+
     <!-- Price -->
     <div class="filter-section">
       <h5>Price</h5>
@@ -178,9 +180,9 @@
         <input value="110" matSliderEndThumb [(ngModel)]="maxPrice">
       </mat-slider>
       <p>Price: ${{minPrice}} - ${{ maxPrice }}.00</p>
-      <button class="btn btn-primary">FILTER</button>
+      <button class="btn btn-primary" (click)="filterByPrice()">FILTER</button>
     </div>
-  
+
     <!-- Product Type -->
     <div class="filter-section">
       <h5>Product Type</h5>
@@ -197,7 +199,7 @@
         Women (15)
       </label>
     </div>
-  
+
     <!-- Brand -->
     <div class="filter-section">
       <h5>Brand</h5>
@@ -217,7 +219,7 @@
         <!-- Add more brand options as needed -->
       </div>
     </div>
-  
+
     <!-- Color -->
     <div class="filter-section">
       <h5>Color</h5>
@@ -237,7 +239,7 @@
         <!-- Add more colors as needed -->
       </div>
     </div>
-  
+
     <!-- Size -->
     <div class="filter-section">
       <h5>Size</h5>
@@ -256,5 +258,5 @@
       <!-- Add more sizes as needed -->
     </div>
   </div>
-  
+
 </div>

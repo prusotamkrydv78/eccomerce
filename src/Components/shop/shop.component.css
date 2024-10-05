@@ -408,7 +408,7 @@
 .filter {
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   background: #00000054;
   top: 0;
   z-index: 999;
