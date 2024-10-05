@@ -4,11 +4,14 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { gsap } from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FormsModule } from '@angular/forms';
+import { FilterComponent } from './filter/filter.component';
+
+import { MatSliderModule } from '@angular/material/slider';
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FilterComponent, FormsModule, MatSliderModule],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css'
 })
@@ -19,6 +22,8 @@ export class ShopComponent {
   showIn4Column = false
   showIn5Column = false
   showIn6Column = false
+  isFilterDisplayed = false
+  isFilterActive = false
 
 
   ProductData: any = ProductData;
@@ -73,5 +78,55 @@ export class ShopComponent {
     this.showIn5Column = false
     this.showIn6Column = true
   }
+  toggleFilter() {
+    this.isFilterDisplayed = !this.isFilterDisplayed
+    if (this.isFilterDisplayed) {
 
+      this.isFilterActive = true
+      document.body.style.overflow = "hidden"
+
+    } else {
+      document.body.style.overflow = "unset"
+    }
+
+  }
+
+  closeFilter() {
+    this.isFilterActive = false
+    this.isFilterDisplayed = false
+    document.body.style.overflow = "unset"
+
+
+  }
+  stopEventPropagation(event: Event) {
+    event.stopPropagation();
+  }
+
+  // for filter
+  minPrice: number = 0;
+  maxPrice: number = 149;
+
+  constructor() {
+
+  }
+
+  applyFilters() {
+    // Handle filter logic here
+    console.log('Filters applied');
+  }
+
+  animatOnMouseEnter() {
+    gsap.to(".close-btn", {
+      rotate: 120,
+      duration: .5
+    })
+
+  }
+  animatOnMouseLeave() {
+    gsap.to(".close-btn", {
+      rotate: -120,
+      duration: .5
+    })
+
+  }
 }

@@ -21,7 +21,7 @@
 
   <!-- Grid/List View Switcher and Sort Dropdown -->
   <div class="controls">
-    <button class="filter-button"><i class="bi bi-funnel"></i> Filter</button>
+    <button class="filter-button" (click)="toggleFilter()"><i class="bi bi-funnel"></i> Filter</button>
     <div class="view-icons">
       <div class="alignment inList" (click)="showInList()" [ngClass]="{ 'activeCol': isListed }">
         <span></span>
@@ -148,4 +148,113 @@
   </div>
 
   }
+</div>
+<div class="filter" *ngIf="isFilterDisplayed" (click)="toggleFilter()">
+  
+  <div class="filter-sidebar"   (click)="stopEventPropagation($event)">
+    <div class="filter-header">
+      <h4>FILTER</h4>
+      <button class="close-btn" (click)="closeFilter()" (mouseenter)="animatOnMouseEnter()" (mouseleave)="animatOnMouseLeave()"><i class="bi bi-x-lg"></i></button>
+    </div>
+  
+    <!-- Availability -->
+    <div class="filter-section">
+      <h5>Availability</h5>
+      <label>
+        <input type="checkbox" name="availability" value="in-stock" />
+        In Stock (45)
+      </label>
+      <label>
+        <input type="checkbox" name="availability" value="out-of-stock" />
+        Out of Stock (13)
+      </label>
+    </div>
+  
+    <!-- Price -->
+    <div class="filter-section">
+      <h5>Price</h5>
+      <mat-slider min="0" max="147">
+        <input value="50" matSliderStartThumb [(ngModel)]="minPrice">
+        <input value="110" matSliderEndThumb [(ngModel)]="maxPrice">
+      </mat-slider>
+      <p>Price: ${{minPrice}} - ${{ maxPrice }}.00</p>
+      <button class="btn btn-primary">FILTER</button>
+    </div>
+  
+    <!-- Product Type -->
+    <div class="filter-section">
+      <h5>Product Type</h5>
+      <label>
+        <input type="checkbox" name="productType" value="accessories" />
+        Accessories (1)
+      </label>
+      <label>
+        <input type="checkbox" name="productType" value="man" />
+        Men (3)
+      </label>
+      <label>
+        <input type="checkbox" name="productType" value="women" />
+        Women (15)
+      </label>
+    </div>
+  
+    <!-- Brand -->
+    <div class="filter-section">
+      <h5>Brand</h5>
+      <div class="scrollable">
+        <label>
+          <input type="checkbox" name="brand" value="hsm" />
+          HSM (1)
+        </label>
+        <label>
+          <input type="checkbox" name="brand" value="iamgeek" />
+          Iamgeek (1)
+        </label>
+        <label>
+          <input type="checkbox" name="brand" value="kalles" />
+          Kalles (2)
+        </label>
+        <!-- Add more brand options as needed -->
+      </div>
+    </div>
+  
+    <!-- Color -->
+    <div class="filter-section">
+      <h5>Color</h5>
+      <div class="color-options">
+        <label>
+          <input type="checkbox" name="color" value="black" />
+          <span class="color-box black"></span> Black (13)
+        </label>
+        <label>
+          <input type="checkbox" name="color" value="blue" />
+          <span class="color-box blue"></span> Blue (4)
+        </label>
+        <label>
+          <input type="checkbox" name="color" value="cyan" />
+          <span class="color-box cyan"></span> Cyan (1)
+        </label>
+        <!-- Add more colors as needed -->
+      </div>
+    </div>
+  
+    <!-- Size -->
+    <div class="filter-section">
+      <h5>Size</h5>
+      <label>
+        <input type="checkbox" name="size" value="xs" />
+        XS (2)
+      </label>
+      <label>
+        <input type="checkbox" name="size" value="s" />
+        S (2)
+      </label>
+      <label>
+        <input type="checkbox" name="size" value="m" />
+        M (7)
+      </label>
+      <!-- Add more sizes as needed -->
+    </div>
+  </div>
+  
 </div>

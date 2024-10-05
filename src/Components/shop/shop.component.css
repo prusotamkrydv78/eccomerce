@@ -70,6 +70,11 @@
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
+  transition: .3s linear;
+}
+
+.filter-button:hover {
+  color: #56CFE0;
 }
 
 .view-icons {
@@ -149,11 +154,13 @@
   width: unset;
   object-fit: cover;
 }
-.card .details{
+
+.card .details {
   color: RGB(135, 135, 135);
   margin-top: 0;
   justify-content: center;
 }
+
 .card .buttons {
   align-items: center;
   justify-content: center;
@@ -172,17 +179,19 @@
 
 }
 
-.activeCol{ 
-  border-color:black;
+.activeCol {
+  border-color: black;
 }
-.activeCol span{
+
+.activeCol span {
   background: black;
 }
 
 /* style to show the cards in 2 column */
-.showIn2Column{
+.showIn2Column {
   grid-template-columns: 1fr 1fr !important;
 }
+
 .showIn2Column .card {
   height: 90vh;
   display: block;
@@ -192,17 +201,25 @@
   border: none;
   color: RGB(135, 135, 135);
 }
+
 .showIn2Column .card>div:first-child {
   height: 90%;
 }
-.showIn2Column img{
+
+.showIn2Column img {
   height: 100%;
-  width:100%;
+  width: 100%;
   object-fit: cover;
 }
 
+.showIn2Column .buttons>button:first-child {
+  color: black;
+  border: none;
+
+}
+
 /* style to show the cards in 3 column */
-.showIn3Column{
+.showIn3Column {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2vh 0;
 }
@@ -216,17 +233,26 @@
   border: none;
   color: RGB(135, 135, 135);
 }
+
 .showIn3Column .card>div:first-child {
   height: 90%;
 }
-.showIn3Column img{
+
+.showIn3Column img {
   height: 100%;
-  width:100%;
+  width: 100%;
   object-fit: cover;
 }
 
+.showIn3Column .buttons>button:first-child {
+  color: black;
+  border: none;
+
+}
+
+
 /* style to show the cards in 4 column */
-.showIn4Column{
+.showIn4Column {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 4vh 0;
 }
@@ -240,20 +266,29 @@
   border: none;
   color: RGB(135, 135, 135);
 }
+
 .showIn4Column .card>div:first-child {
   height: 90%;
 }
-.showIn4Column .card img{
+
+.showIn4Column .card img {
   height: 100%;
-  width:100%;
+  width: 100%;
   object-fit: cover;
 }
 
-/* style to show the cards in 4 column */
-.showIn5Column{
+.showIn4Column .buttons>button:first-child {
+  color: black;
+  border: none;
+
+}
+
+
+/* style to show the cards in 5 column */
+.showIn5Column {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap:6vh 0;
-} 
+  gap: 6vh 0;
+}
 
 .showIn5Column .card {
   height: 35vh;
@@ -266,23 +301,53 @@
   color: RGB(135, 135, 135);
   font-weight: normal;
 }
+
 .showIn5Column .card>div:first-child {
   height: 90%;
 }
-.showIn5Column .details .name{
+
+.showIn5Column .details .name {
   font-weight: normal !important;
 }
-.showIn5Column .card img{
+
+.showIn5Column .card img {
   height: 100%;
-  width:100%;
+  width: 100%;
   object-fit: cover;
 }
 
-/* style to show the cards in 4 column */
-.showIn6Column{
+.showIn5Column .buttons>button:first-child {
+  color: black;
+  border: none;
+
+}
+
+.showIn5Column .buttons button {
+  border: none;
+  height: 2rem;
+  width: 8rem;
+}
+
+.showIn5Column .buttons button span:first-child {
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.showIn5Column .buttons button span:last-child {
+  top: 4px;
+  font-size: 16px;
+  height: 2rem;
+  width: 8rem;
+}
+
+
+/* style to show the cards in6 column */
+.showIn6Column {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap:6vh 0;
-} 
+  gap: 6vh 0;
+}
 
 .showIn6Column .card {
   height: 30vh;
@@ -295,17 +360,209 @@
   font-weight: normal;
   color: RGB(135, 135, 135);
 }
+
 .showIn6Column .card>div:first-child {
   height: 90%;
 }
-.showIn6Column .details .name{
+
+.showIn6Column .details .name {
   font-weight: normal !important;
 }
-.showIn6Column .card img{
+
+.showIn6Column .card img {
   height: 100%;
-  width:100%;
+  width: 100%;
   object-fit: cover;
 }
 
+.showIn6Column .buttons>button:first-child {
+  color: black;
+  border: none;
 
+}
+
+
+.showIn6Column .buttons button {
+  border: none;
+  height: 2rem;
+  width: 8rem;
+}
+
+.showIn6Column .buttons button span:first-child {
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.showIn6Column .buttons button span:last-child {
+  top: 4px;
+  font-size: 16px;
+  height: 2rem;
+  width: 8rem;
+}
+
+
+/* filter stles */
+
+.filter {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: #00000054;
+  top: 0;
+  z-index: 999;
+}
+
+
+
+.filter-sidebar {
+  width: 350px;
+  height: 100vh;
+  overflow: scroll;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-sidebar>div {
+  padding: 15px;
+  border-bottom: 1px solid rgb(174 174 174 / 71%);
+}
+
+.mdc-slider__input {
+  cursor: e-resize;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6vh;
+}
+
+.filter-header h4 {
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+.filter-header button:hover {
+  animation: animateCloseFilterIcon 0.5s ease-in-out;
+}
+
+/* @keyframes animateCloseFilterIcon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section h5 {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  position: relative;
+  margin: 15px 0;
+}
+
+.filter-section h5::after {
+  content: '';
+  position: absolute;
+  background: black;
+  width: 20%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+}
+
+.filter-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  transition: .3s linear;
+  cursor: pointer;
+}
+.filter-section label:hover{
+  color:#56CFE0;
+}
+.color-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.color-box.black {
+  background-color: black;
+}
+
+.color-box.blue {
+  background-color: blue;
+}
+
+.color-box.cyan {
+  background-color: cyan;
+}
+
+.color-box.green {
+  background-color: green;
+}
+
+.color-box.grey {
+  background-color: grey;
+}
+
+.color-box.heart-dotted {
+  /* background: url('heart-dotted.png') no-repeat center; */
+  width: 20px;
+  height: 20px;
+  /* Customize more colors */
+}
+
+.scrollable {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+/* input[type="range"] {
+  width: 100%;
+  margin-bottom: 10px;
+} */
+mat-slider {
+  width: 90%;
+}
+
+button.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+}
+
+button.btn-primary {
+  padding: 8px 27px;
+  color: #000;
+  border: 1.5px solid black;
+  background: white;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: .3s linear;
+}
+
+button.btn-primary:hover {
+  background:#56CFE1;
+  color: #fff;
+  border-color: #56CFE1;
+}
+.mdc-slider__track--active_fill {
+  background-color: #56CFE1 !important;
+}.mdc-slider__thumb-knob {
+  background-color: #fff !important;
+}
  
