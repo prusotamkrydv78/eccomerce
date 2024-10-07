@@ -1,0 +1,120 @@
+/* Modal container */
+.product-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  /* Modal content */
+  .product-modal-content {
+    position: relative;
+    text-align: center;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  
+  .price {
+    font-size: 24px;
+    margin: 0 0 15px;
+    color: #000;
+  }
+  
+  /* Size section */
+  .size-section {
+    margin-bottom: 15px;
+  }
+  
+  .size-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .size-btn {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+  }
+  
+  .size-btn.selected {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Quantity section */
+  .quantity-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .quantity-btn {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+  }
+  
+  .quantity {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+  
+  /* Action buttons (wishlist/compare) */
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .action-btn {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Add to cart button */
+  .add-to-cart-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #00a1b9;
+  }
+  

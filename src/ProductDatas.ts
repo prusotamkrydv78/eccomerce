@@ -27,7 +27,9 @@ const ProductData = [
     discountPercent: 0,
     description:
       'Go kalles this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish kalles vibe..',
-    quantity: 2
+    quantity: 2,
+    
+    category: ['women']
   },
   {
     id: 3,
@@ -69,7 +71,7 @@ const ProductData = [
     description:
       'Go kalles this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish kalles vibe.',
     quantity: 8,
-    cateogry: ['men', 'women']
+    category: ['men', 'women']
   },
   {
     id: 6,
@@ -84,7 +86,7 @@ const ProductData = [
       'Go kalles this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish kalles vibe.',
     quantity: 7,
 
-    cateogry: ['women']
+    category: ['women']
   },
   {
     id: 7,
@@ -98,7 +100,7 @@ const ProductData = [
     description:
       'Go kalles this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish kalles vibe.',
     quantity: 15,
-    cateogry: ['men',]
+    category: ['men',]
   },
   {
     id: 8,
@@ -112,7 +114,7 @@ const ProductData = [
     description:
       'Go kalles this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish kalles vibe.',
     quantity: 0,
-    cateogry: ['men', 'women']
+    category: ['men', 'women']
   },
 ];
 

@@ -29,8 +29,7 @@ export class TrendingComponent implements AfterViewInit  {
         start: 'top 80%',     
          end: 'top 100%', 
          toggleActions: 'play none none reverse',  
-            scrub: 1,
-            // markers:true
+            scrub: 1, 
       }
     }) 
     this.onMouseEnter()

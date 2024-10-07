@@ -1,0 +1,37 @@
+<div class="modal-overlay" (click)="closePopup()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <div class="modal-content">
+        <div class="modal-image">
+          <img src="your-image-path" alt="Offer Image" />
+        </div>
+  
+        <div class="modal-text">
+          <h2>Wait! Before you leave...</h2>
+          <p>Get 15% off for your first order</p>
+          <div class="promo-code">
+            <input type="text" value="CODE15OFF" readonly />
+            <button (click)="copyCode()">Copy</button>
+          </div>
+          <button class="discount-button" (click)="grabDiscount()">
+            GRAB THE DISCOUNT
+          </button>
+        </div>
+      </div>
+  
+      <div class="recommended-products">
+        <h3>Recommended Products</h3>
+        <ul>
+          <li *ngFor="let product of products">
+            <div class="product">
+              <img [src]="product.image" alt="product.name" />
+              <div>
+                <p>{{ product.name }}</p>
+                <p>{{ product.price }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

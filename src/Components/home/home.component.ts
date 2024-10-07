@@ -26,8 +26,7 @@ export class HomeComponent implements AfterViewInit {
         start: 'top 80%',
         end: 'top 40%',
         toggleActions: 'play none none reverse',
-        scrub: 1,
-        markers: true,
+        scrub: 1, 
       },
     });
     gsap.to('.news', {
@@ -41,8 +40,7 @@ export class HomeComponent implements AfterViewInit {
         start: 'top 80%',
         end: 'top 40%',
         toggleActions: 'play none none reverse',
-        scrub: 1,
-        markers: true,
+        scrub: 1, 
       },
     });
   }
