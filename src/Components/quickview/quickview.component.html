@@ -1,52 +1,59 @@
 <div class="product-page">
-    <div class="product-container">
-      <!-- Product Image Carousel -->
-      <div class="product-image-section">
-        <img class="main-image" [src]="selectedImage" alt="Product Image" />
-        <div class="thumbnail-container">
-          <img *ngFor="let img of product.images"
-               [src]="img"
-               (click)="onSelectImage(img)"
-               class="thumbnail" />
-        </div>
+  <div class="product-container">
+    <!-- Product Image Carousel -->
+    <div class="product-image-section">
+      <img
+        class="main-image"
+        src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/nlota2087710739_q2_2-0_8564d457-e030-45da-9ea5-a3aab2c582de.jpg?v=1652168737&width=360"
+        alt="Product Image"
+      />
+      <div class="thumbnail-container">
+        <img
+          *ngFor="let img of product.images"
+          src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/nlota2087710739_q2_2-0_8564d457-e030-45da-9ea5-a3aab2c582de.jpg?v=1652168737&width=360"
+          (click)="onSelectImage(img)"
+          class="thumbnail"
+        />
       </div>
-  
-      <!-- Product Info -->
-      <div class="product-info-section">
-        <h1>{{ product.name }}</h1>
-        <p class="product-price">¥{{ product.price }}</p>
-        <p class="product-description">{{ product.description }}</p>
-  
-        <!-- Size Selector -->
-        <div class="size-selector">
-          <span>Select Size: </span>
-          <button *ngFor="let size of sizes"
-                  (click)="onSelectSize(size)"
-                  [ngClass]="{'selected': selectedSize === size}">
-            {{ size }}
-          </button>
-        </div>
-  
-        <!-- Add to Cart and Buy Now Buttons -->
-        <div class="button-container">
-          <button class="add-to-cart">Add to Cart</button>
-          <button class="buy-now">Buy It Now</button>
-        </div>
-  
-        <!-- Pairs well with section -->
-        <div class="related-products">
-          <h3>Pairs well with:</h3>
-          <ul>
-            <li *ngFor="let item of relatedProducts">
-              <img [src]="item.image" alt="{{ item.name }}" />
-              <div class="related-product-info">
-                <p>{{ item.name }}</p>
-                <p class="related-product-price">¥{{ item.price }}</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info-section">
+      <h1>{{ product.name }}</h1>
+      <p class="product-price">¥{{ product.price }}</p>
+      <p class="product-description">{{ product.description }}</p>
+
+      <!-- Size Selector -->
+      <div class="size-selector">
+        <span>Select Size: </span>
+        <button
+          *ngFor="let size of sizes"
+          (click)="onSelectSize(size)"
+          [ngClass]="{ selected: selectedSize === size }"
+        >
+          {{ size }}
+        </button>
+      </div>
+
+      <!-- Add to Cart and Buy Now Buttons -->
+      <div class="button-container">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy It Now</button>
+      </div>
+
+      <!-- Pairs well with section -->
+      <div class="related-products">
+        <h3>Pairs well with:</h3>
+        <ul>
+          <li *ngFor="let item of relatedProducts">
+            <img [src]="item.image" alt="{{ item.name }}" />
+            <div class="related-product-info">
+              <p>{{ item.name }}</p>
+              <p class="related-product-price">¥{{ item.price }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-  
+</div>

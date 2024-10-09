@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-product-page',
+  selector: 'app-quickview',
   templateUrl: './quickview.component.html',
   styleUrls: ['./quickview.component.css'],
   standalone:true,

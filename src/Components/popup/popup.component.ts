@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './popup.component.html',
   styleUrl: './popup.component.css',
 })
-export class ExitPopupComponent {
+export class PopupComponent {
   products = [
     {
       name: 'Amara Reversible Jacket',

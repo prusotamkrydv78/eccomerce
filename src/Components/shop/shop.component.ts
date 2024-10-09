@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import ProductData from '../../../src/ProductDatas';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { gsap } from 'gsap';
@@ -6,16 +6,35 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { PopupComponent } from '../popup/popup.component';
+import { QuickviewComponent } from '../quickview/quickview.component';
+import { QuickshopComponent } from '../quickshop/quickshop.component';
+import { ShopService } from '../shopService/shop.service';
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule, FormsModule, FormsModule, MatSliderModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FormsModule,
+    MatSliderModule,
+    PopupComponent,
+    QuickviewComponent,
+    QuickshopComponent,
+  ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
 export class ShopComponent {
-  constructor() {}
+  shopService = inject(ShopService);
+  constructor() {
+    this.shopService.isQuickShopShown;
+    this.shopService.toggleQuickShopModel;
+  }
+  addNumber(){
+    console.log("jld")
+  }
   isListed: boolean = true;
   showIn2Column = false;
   showIn3Column = false;
@@ -30,6 +49,8 @@ export class ShopComponent {
   accessorsCheckBox = false;
   menCheckBox = false;
   womenCheckBox = false;
+
+  // for quick shop model box
 
   ProductData: any = ProductData;
 

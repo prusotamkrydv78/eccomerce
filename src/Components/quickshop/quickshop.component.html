@@ -1,29 +1,74 @@
 <div class="product-modal">
-    <div class="product-modal-content">
-      <button class="close-btn">×</button>
-      <h2>Ridley High Waist</h2>
-      <p class="price">¥5,500</p>
-  
-      <div class="size-section">
-        <label>SIZE: S</label>
+  <div class="product-modal-content">
+    <div class="button">
+      <button
+        class="close-btn"
+        (click)="this.shopService.toggleQuickShopModel(0)"
+      >
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+    <h2>{{ this.name }}</h2>
+    <p class="price">
+      ${{ this.price - (this.discountPercent / 100) * this.price }}
+    </p>
+
+    <div class="buttons">
+      @if(sizes.length){
+
+      <div class="size-section" >
+        <div class="size">
+          <label>SIZE: </label>
+          <span style="text-transform: uppercase;">{{ this.selectedSize }}</span>
+        </div>
         <div class="size-options">
-          <button class="size-btn selected">S</button>
-          <button class="size-btn">L</button>
+          @for (size of this.sizes; track $index) {
+
+          <button
+            class="size-btn"
+            style="text-transform: uppercase; font-weight: bold"
+            (click)="selectSize(size)"
+            [class.selected]="size === this.selectedSize"
+
+          >
+            {{ size }}
+          </button>
+
+          }
         </div>
       </div>
-  
-      <div class="quantity-section">
-        <button class="quantity-btn">-</button>
-        <span class="quantity">1</span>
-        <button class="quantity-btn">+</button>
+      
+    }@else{
+      <span>No sizes avaible</span>
+    }
+      <div>
+        <div class="edit-section">
+          <div class="quantity-section">
+            <button (click)="decreaseOrdredQuantity()" class="quantity-btn">
+              <i class="bi bi-dash"></i>
+            </button>
+            <input
+              type="number"
+              name="quantity"
+              [(ngModel)]="ordredQuantity"
+              id="quantity"
+            />
+            <button (click)="increaseOrdredQuantity()" class="quantity-btn">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+
+          <div class="actions">
+            <button class="action-btn wishlist">
+              <i class="bi bi-heart"></i>
+            </button>
+            <button class="action-btn compare">
+              <i class="bi bi-shuffle"></i>
+            </button>
+          </div>
+        </div>
       </div>
-  
-      <div class="actions">
-        <button class="action-btn wishlist">❤</button>
-        <button class="action-btn compare">↔</button>
-      </div>
-  
-      <button class="add-to-cart-btn">ADD TO CART</button>
     </div>
+    <button class="add-to-cart-btn">ADD TO CART</button>
   </div>
-  
+</div>

@@ -1,5 +1,4 @@
-<!-- Navigation Bar -->
-<div>
+<!-- <div>
   <div class="navbar">
     <div class="navbar-links">
       <a href="#">Men</a>
@@ -10,16 +9,14 @@
       <a href="#">Dress</a>
     </div>
   </div>
-
-  <!-- Banner with Background Image -->
+ 
   <div class="banner">
     <div class="overlay">
       <h1>Fashion</h1>
       <p>Shop through our latest selection of Fashion</p>
     </div>
   </div>
-
-  <!-- Grid/List View Switcher and Sort Dropdown -->
+ 
   <div class="controls">
     <button class="filter-button" (click)="toggleFilter()">
       <i class="bi bi-funnel"></i> Filter
@@ -92,7 +89,7 @@
       <option value="3">New Arrivals</option>
     </select>
   </div>
-</div>
+</div> -->
 
 <div
   class="cards"
@@ -132,7 +129,7 @@
           </button>
           <button>
             <span>quick shop</span>
-            <span>
+            <span (click)="this.addNumber()">
               <i class="bi bi-cart3"></i>
             </span>
           </button>
@@ -179,7 +176,7 @@
         <span>quick view</span>
         <span> <i class="bi bi-eye"></i></span>
       </button>
-      <button>
+      <button  (click)="this.shopService.toggleQuickShopModel($index)">
         <span>quick shop</span>
         <span>
           <i class="bi bi-cart3"></i>
@@ -204,7 +201,6 @@
       </button>
     </div>
 
-    <!-- Availability -->
     <div class="filter-section">
       <h5>Availability</h5>
       <label>
@@ -229,7 +225,6 @@
       </label>
     </div>
 
-    <!-- Price -->
     <div class="filter-section">
       <h5>Price</h5>
       <mat-slider min="0" max="147">
@@ -240,9 +235,8 @@
       <button class="btn btn-primary" (click)="filterByPrice()">FILTER</button>
     </div>
 
-    <!-- Product Type -->
     <div class="filter-section">
-      <h5>Product Type</h5> 
+      <h5>Product Type</h5>
       <label>
         <input
           type="checkbox"
@@ -275,7 +269,6 @@
       </label>
     </div>
 
-    <!-- Brand -->
     <div class="filter-section">
       <h5>Brand</h5>
       <div class="scrollable">
@@ -291,11 +284,9 @@
           <input type="checkbox" name="brand" value="kalles" />
           Kalles (2)
         </label>
-        <!-- Add more brand options as needed -->
       </div>
     </div>
 
-    <!-- Color -->
     <div class="filter-section">
       <h5>Color</h5>
       <div class="color-options">
@@ -311,11 +302,9 @@
           <input type="checkbox" name="color" value="cyan" />
           <span class="color-box cyan"></span> Cyan (1)
         </label>
-        <!-- Add more colors as needed -->
       </div>
     </div>
 
-    <!-- Size -->
     <div class="filter-section">
       <h5>Size</h5>
       <label>
@@ -330,7 +319,12 @@
         <input type="checkbox" name="size" value="m" />
         M (7)
       </label>
-      <!-- Add more sizes as needed -->
     </div>
   </div>
+</div>
+
+<!-- <app-popup/> -->
+<!-- <app-quickview/> -->
+<div *ngIf="this.shopService.isQuickShopShown">
+  <app-quickshop />
 </div>
