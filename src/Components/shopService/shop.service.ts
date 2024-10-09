@@ -14,7 +14,6 @@ export class ShopService {
   toggleQuickShopModel(index: number) {
     this.isQuickShopShown = !this.isQuickShopShown;
     this.quickShopClickItemIndex = index;
-
      (this.quickShopClickItem = ProductData.filter((item: any) => {
       if (item.id == this.quickShopClickItemIndex + 1) {
         console.log(item);

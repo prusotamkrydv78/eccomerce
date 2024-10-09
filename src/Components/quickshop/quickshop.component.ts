@@ -20,7 +20,12 @@ export class QuickshopComponent {
   ordredQuantity = 1;
   sizes = this.quickShopClickItem[0].sizes;
   selectedSize = this.sizes[0];
-
+  constructor() {
+    this.shopService.toggleQuickShopModel;
+    if (this.quantity < 1) {
+      this.ordredQuantity = 0;
+    }
+  }
   increaseOrdredQuantity() {
     if (this.quantity < 1) {
       this.ordredQuantity = 0;
@@ -30,8 +35,7 @@ export class QuickshopComponent {
     if (this.ordredQuantity < this.quantity) {
       this.ordredQuantity++;
     } else {
-      this.ordredQuantity;
-      alert('out of stock');
+      alert('you reached at maximun');
     }
   }
   decreaseOrdredQuantity() {
@@ -44,10 +48,26 @@ export class QuickshopComponent {
       this.ordredQuantity--;
     }
   }
-  constructor() {
-    this.shopService.toggleQuickShopModel;
-  }
   selectSize(size: string) {
     this.selectedSize = size;
+  }
+  selectedProduct: any = {
+    name: String,
+    bugingPrice: Number,
+    discountPercent: Number,
+    ordredQuantity: Number,
+    selectedSize: String,
+  };
+  addToCart() {
+    this.selectedProduct = {
+      name: this.name,
+      buyingPrice: this.price - (this.discountPercent / 100) * this.price,
+      discountPercent: this.discountPercent,
+      ordredQuantity: this.ordredQuantity,
+      selectedSize: this.selectedSize || '',
+    };
+    this.shopService.isQuickShopShown = false;
+    // this.shopService.addToCart(this.selectedProduct)
+    console.log(this.selectedProduct);
   }
 }

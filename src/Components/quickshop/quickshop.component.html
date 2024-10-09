@@ -47,12 +47,13 @@
             <button (click)="decreaseOrdredQuantity()" class="quantity-btn">
               <i class="bi bi-dash"></i>
             </button>
-            <input
+            <!-- <input
               type="number"
               name="quantity"
               [(ngModel)]="ordredQuantity"
               id="quantity"
-            />
+            /> -->
+            <span>{{ordredQuantity}}</span>
             <button (click)="increaseOrdredQuantity()" class="quantity-btn">
               <i class="bi bi-plus"></i>
             </button>
@@ -69,6 +70,6 @@
         </div>
       </div>
     </div>
-    <button class="add-to-cart-btn">ADD TO CART</button>
+    <button class="add-to-cart-btn" (click)="addToCart()">ADD TO CART</button>
   </div>
 </div>

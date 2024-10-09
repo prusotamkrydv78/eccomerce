@@ -1,4 +1,4 @@
-<!-- <div>
+  <div>
   <div class="navbar">
     <div class="navbar-links">
       <a href="#">Men</a>
@@ -89,7 +89,7 @@
       <option value="3">New Arrivals</option>
     </select>
   </div>
-</div> -->
+</div> 
 
 <div
   class="cards"
@@ -129,7 +129,7 @@
           </button>
           <button>
             <span>quick shop</span>
-            <span (click)="this.addNumber()">
+            <span (click)="this.shopService.toggleQuickShopModel($index)">
               <i class="bi bi-cart3"></i>
             </span>
           </button>
