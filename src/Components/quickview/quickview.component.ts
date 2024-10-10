@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ShopService } from '../shopService/shop.service';
 
 @Component({
   selector: 'app-quickview',
@@ -10,6 +11,10 @@ import { FormsModule } from '@angular/forms';
   imports:[FormsModule,CommonModule]
 })
 export class QuickviewComponent {
+  shopService = inject(ShopService)
+  isQuickViewShown = this.shopService.isQuickViewShown; 
+  toggleQuickViewModel = this.shopService.toggleQuickViewModel
+
   product = {
     name: 'Analogue Resin Strap',
     price: 4600,

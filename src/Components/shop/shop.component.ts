@@ -31,6 +31,9 @@ export class ShopComponent {
   constructor() {
     this.shopService.isQuickShopShown;
     this.shopService.toggleQuickShopModel;
+     
+    this.shopService.isQuickViewShown;
+    this.shopService.toggleQuickViewModel;
   }
   addNumber(){
     console.log("jld")

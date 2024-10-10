@@ -1,58 +1,81 @@
-<div class="product-page">
-  <div class="product-container">
-    <!-- Product Image Carousel -->
-    <div class="product-image-section">
+<div class="modal">
+  <div class="modal-content">
+    <div class="button">
+      <button
+        class="close-btn"
+        (click)="this.shopService.toggleQuickViewModel()"
+      >
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+    <div class="image-section">
       <img
-        class="main-image"
-        src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/nlota2087710739_q2_2-0_8564d457-e030-45da-9ea5-a3aab2c582de.jpg?v=1652168737&width=360"
+        src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/nlota2087710739_q1_2-0_8077af1c-2697-44de-bd4e-42cad31a16b3.jpg?v=1652168737&width=600"
         alt="Product Image"
       />
-      <div class="thumbnail-container">
-        <img
-          *ngFor="let img of product.images"
-          src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/nlota2087710739_q2_2-0_8564d457-e030-45da-9ea5-a3aab2c582de.jpg?v=1652168737&width=360"
-          (click)="onSelectImage(img)"
-          class="thumbnail"
-        />
-      </div>
+      <button class="prev-btn">&#10094;</button>
+      <button class="next-btn">&#10095;</button>
     </div>
-
-    <!-- Product Info -->
-    <div class="product-info-section">
-      <h1>{{ product.name }}</h1>
-      <p class="product-price">¥{{ product.price }}</p>
-      <p class="product-description">{{ product.description }}</p>
-
-      <!-- Size Selector -->
-      <div class="size-selector">
-        <span>Select Size: </span>
-        <button
-          *ngFor="let size of sizes"
-          (click)="onSelectSize(size)"
-          [ngClass]="{ selected: selectedSize === size }"
-        >
-          {{ size }}
-        </button>
+    <div class="product-details">
+      <h2>Ridley High Waist</h2>
+      <p>¥5,500</p>
+      <div class="rating">
+        <span>⭐⭐⭐⭐⭐</span>
+        <span>(7 reviews)</span>
       </div>
-
-      <!-- Add to Cart and Buy Now Buttons -->
-      <div class="button-container">
-        <button class="add-to-cart">Add to Cart</button>
-        <button class="buy-now">Buy It Now</button>
+      <p class="description">
+        Go kalles this summer with this vintage navy and white striped v-neck
+        t-shirt from the Nike.
+      </p>
+      <div class="size-options">
+        <div>
+          <label>Size:</label>
+          <span style="margin-left:10px;">S</span>
+        </div>
+        <div>
+          <button class="size-btn selected">S</button>
+          <button class="size-btn">L</button>
+        </div>
       </div>
-
-      <!-- Pairs well with section -->
-      <div class="related-products">
-        <h3>Pairs well with:</h3>
-        <ul>
-          <li *ngFor="let item of relatedProducts">
-            <img [src]="item.image" alt="{{ item.name }}" />
-            <div class="related-product-info">
-              <p>{{ item.name }}</p>
-              <p class="related-product-price">¥{{ item.price }}</p>
-            </div>
-          </li>
-        </ul>
+      <div class="addToCart">
+        <div class="quantity">
+          <button class="qty-btn">
+            <i class="bi-dash-lg"></i>
+          </button>
+          <span>1</span>
+          <button class="qty-btn">+</button>
+        </div>
+        <div class="action-buttons">
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="more">
+          <button><i class="bi-heart"></i></button>
+        </div>
+        <div class="more">
+          <button><i class="bi bi-shuffle"></i></button>
+        </div>
+      </div>
+      <div class="buy-now-btn">
+        <button>Buy It Now</button>
+      </div>
+      <div class="extra-info">
+        <a href="#">Size Guide</a>
+        <a href="#">Delivery & Return</a>
+        <a href="#">Ask a Question</a>
+      </div>
+      <div class="social-icons">
+        <span>
+          <!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:1624157260. -->
+          <i class="bi bi-facebook"></i> </span
+        ><span> <i class="bi bi-instagram"></i> </span
+        ><span> <i class="bi bi-whatsapp"></i> </span
+        ><span>
+          <i class="bi bi-tiktok"></i>
+        </span>
+      </div>
+      <div class="view-full-details">
+        <button>View Full Details</button>
+        <span><i class="bi bi-arrow-right"></i></span>
       </div>
     </div>
   </div>

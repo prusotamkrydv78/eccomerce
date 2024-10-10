@@ -1,4 +1,4 @@
-  <div>
+<div>
   <div class="navbar">
     <div class="navbar-links">
       <a href="#">Men</a>
@@ -9,14 +9,14 @@
       <a href="#">Dress</a>
     </div>
   </div>
- 
+
   <div class="banner">
     <div class="overlay">
       <h1>Fashion</h1>
       <p>Shop through our latest selection of Fashion</p>
     </div>
   </div>
- 
+
   <div class="controls">
     <button class="filter-button" (click)="toggleFilter()">
       <i class="bi bi-funnel"></i> Filter
@@ -89,7 +89,7 @@
       <option value="3">New Arrivals</option>
     </select>
   </div>
-</div> 
+</div>
 
 <div
   class="cards"
@@ -123,7 +123,7 @@
           <i class="bi bi-shuffle"></i>
         </div>
         <div class="buttons" *ngIf="!isListed">
-          <button>
+          <button  (click)="this.shopService.toggleQuickViewModel()">
             <span>quick view</span>
             <span> <i class="bi bi-eye"></i></span>
           </button>
@@ -172,11 +172,11 @@
       </div>
     </div>
     <div class="buttons" *ngIf="isListed">
-      <button>
+      <button  (click)="this.shopService.toggleQuickViewModel()" (click)="this.shopService.getQuickViewedProduct($index)">
         <span>quick view</span>
         <span> <i class="bi bi-eye"></i></span>
       </button>
-      <button  (click)="this.shopService.toggleQuickShopModel($index)">
+      <button (click)="this.shopService.toggleQuickShopModel($index)" >
         <span>quick shop</span>
         <span>
           <i class="bi bi-cart3"></i>
@@ -324,7 +324,9 @@
 </div>
 
 <!-- <app-popup/> -->
-<!-- <app-quickview/> -->
+<div *ngIf="this.shopService.isQuickViewShown">
+  <app-quickview />
+</div>
 <div *ngIf="this.shopService.isQuickShopShown">
   <app-quickshop />
 </div>
