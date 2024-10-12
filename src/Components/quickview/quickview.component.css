@@ -91,7 +91,18 @@
   align-items: center;
   gap: 10px;
 }
-
+ .varients {
+  display: flex;
+  gap: 5px;
+}
+.varients .color {
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  opacity: 0.69;
+  cursor: pointer;
+}
 .description {
   margin: 10px 0;
 }
@@ -101,9 +112,7 @@
   display: flex;
   gap: 8px;
   text-transform: capitalize;
-  font-weight: bold;
-  flex-direction: column;
-  justify-content: center;
+  font-weight: bold; 
 }
 
 .size-btn {
@@ -122,9 +131,14 @@
   border-color: black;
 }
 
-.selected {
+.selectedSize {
   background-color: #000;
   color: #fff;
+}
+.selectedColor {
+  background-color: rgb(126, 126, 185);
+  color: #fff;
+
 }
 
 .quantity {

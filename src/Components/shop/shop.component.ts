@@ -33,7 +33,7 @@ export class ShopComponent {
     this.shopService.toggleQuickShopModel;
      
     this.shopService.isQuickViewShown;
-    this.shopService.toggleQuickViewModel;
+    this.shopService.toggleQuickViewModel; 
   }
   addNumber(){
     console.log("jld")

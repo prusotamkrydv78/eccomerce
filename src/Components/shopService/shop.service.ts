@@ -5,13 +5,13 @@ import ProductData from '../../ProductDatas';
   providedIn: 'root',
 })
 export class ShopService {
-  constructor() {}
+  constructor() { }
   // logics for quick shop
   isQuickShopShown: boolean = false;
   quickShopClickItemIndex: number = 0;
   quickShopClickItem: any;
   name: any;
-  toggleQuickShopModel(index: number) { 
+  toggleQuickShopModel(index: number) {
     this.isQuickShopShown = !this.isQuickShopShown;
     this.quickShopClickItemIndex = index;
     this.quickShopClickItem = ProductData.filter((item: any) => {
@@ -28,17 +28,14 @@ export class ShopService {
   quickViewClickItem: any;
   toggleQuickViewModel() {
     this.isQuickViewShown = !this.isQuickViewShown;
-    
-  this.getQuickViewedProduct(4)
   }
-  getQuickViewedProduct(index:number){
-    
-  this.quickViewClickItemIndex = index;
+  getQuickViewedProduct(index: number) {
+    this.quickViewClickItemIndex = index;
     this.quickViewClickItem = ProductData.filter((item: any) => {
       if (item.id == this.quickViewClickItemIndex + 1) {
-        console.log(item);
         return item;
       }
-    });
+    }); 
+    return this.quickViewClickItem[0];
   }
 }

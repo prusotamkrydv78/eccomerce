@@ -1,4 +1,5 @@
 <header class="navbar">
+  <div class="menu" (click)="toggleNavbar()"><i class="bi bi-list"></i></div>
   <div class="logo animateLogo">
     <a routerLink="/">
       <h1>kalles</h1>
@@ -16,9 +17,29 @@
       <li id="navItem"><a routerLink="#">Pages</a></li>
       <li id="navItem"><a routerLink="#">Lookbook</a></li>
       <li id="navItem"><a routerLink="#">Blog</a></li>
-      <li id="navItem"><a routerLink="#">Buy Theme</a></li> 
+      <li id="navItem"><a routerLink="#">Buy Theme</a></li>
     </ul>
   </nav>
+
+  <nav class="md-nav-links " [ngClass]="isNavbarShown ? 'showNavbar ' : 'hideNavbar'">
+    <div class="close-navbar" (click)="toggleNavbar()">
+      <i class="bi bi-x-lg"></i>
+    </div>
+    <ul (click)="toggleNavbar()">
+      <li id="md-navItem">
+        <a routerLink="/shop">Shop </a>
+      </li>
+      <li id="mdnavItem"><a routerLink="/product">Product</a></li>
+      <li id="mdnavItem">
+        <a routerLink="#">Sale </a>
+      </li>
+      <li id="mdnavItem"><a routerLink="#">Pages</a></li>
+      <li id="mdnavItem"><a routerLink="#">Lookbook</a></li>
+      <li id="mdnavItem"><a routerLink="#">Blog</a></li>
+      <li id="mdnavItem"><a routerLink="#">Buy Theme</a></li>
+    </ul>
+  </nav>
+
   <div class="icons animateIcon">
     <a routerLink="#" class="icon search-icon">
       <i class="bi bi-search"></i>

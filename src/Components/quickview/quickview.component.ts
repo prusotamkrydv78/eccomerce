@@ -7,40 +7,86 @@ import { ShopService } from '../shopService/shop.service';
   selector: 'app-quickview',
   templateUrl: './quickview.component.html',
   styleUrls: ['./quickview.component.css'],
-  standalone:true,
-  imports:[FormsModule,CommonModule]
+  standalone: true,
+  imports: [FormsModule, CommonModule]
 })
 export class QuickviewComponent {
   shopService = inject(ShopService)
-  isQuickViewShown = this.shopService.isQuickViewShown; 
+  isQuickViewShown = this.shopService.isQuickViewShown;
   toggleQuickViewModel = this.shopService.toggleQuickViewModel
+  quickViewClickItem = this.shopService.quickViewClickItem[0];
 
-  product = {
-    name: 'Analogue Resin Strap',
-    price: 4600,
-    description: `Go kalles this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish kalles vibe.`,
-    images: [
-      'assets/img1.jpg',
-      'assets/img2.jpg',
-      'assets/img3.jpg'
-    ]
-  };
 
-  sizes = ['XS', 'S', 'M', 'L', 'XL'];
-  selectedSize = 'XS';
-  selectedImage = this.product.images[0];
 
-  relatedProducts = [
-    { name: 'Blush Beanie', price: 2300, image: 'assets/blush-beanie.jpg' },
-    { name: 'Cream Women Pants', price: 5300, image: 'assets/cream-pants.jpg' },
-    { name: 'Crop Top T-shirt', price: 2300, image: 'assets/crop-top.jpg' }
-  ];
 
-  onSelectImage(image: string) {
-    this.selectedImage = image;
+
+
+  name = this.quickViewClickItem.name;
+  price = this.quickViewClickItem.price;
+  discountPercent = this.quickViewClickItem.discountPercent;
+  quantity = this.quickViewClickItem.quantity;
+  imageUrl = this.quickViewClickItem.img;
+  ordredQuantity = 1;
+  sizes = this.quickViewClickItem.sizes;
+  colors = this.quickViewClickItem.colors;
+  selectedSize = this.sizes[0];
+  selectedColor = this.colors[0];
+  constructor() {
+    console.log(this.colors)
+    this.shopService.toggleQuickShopModel;
+    if (this.quantity < 1) {
+      this.ordredQuantity = 0;
+    }
+  }
+  increaseOrdredQuantity() {
+    if (this.quantity < 1) {
+      this.ordredQuantity = 0;
+      alert('out of stck');
+      return;
+    }
+    if (this.ordredQuantity < this.quantity) {
+      this.ordredQuantity++;
+    } else {
+      alert('you reached at maximun');
+    }
+  }
+  decreaseOrdredQuantity() {
+    if (this.quantity < 1) {
+      this.ordredQuantity = 0;
+      alert('out of stck');
+      return;
+    }
+    if (this.ordredQuantity > 1) {
+      this.ordredQuantity--;
+    }
+  }
+  selectSize(size: string) {
+    this.selectedSize = size;
+  }
+  selectColor(color: string) {
+    this.selectedColor = color;
   }
 
-  onSelectSize(size: string) {
-    this.selectedSize = size;
+
+  
+ 
+  selectedProduct: any = {
+    name: String,
+    bugingPrice: Number,
+    discountPercent: Number,
+    ordredQuantity: Number,
+    selectedSize: String,
+  };
+  addToCart() {
+    this.selectedProduct = {
+      name: this.name,
+      buyingPrice: this.price - (this.discountPercent / 100) * this.price,
+      discountPercent: this.discountPercent,
+      ordredQuantity: this.ordredQuantity,
+      selectedSize: this.selectedSize || '',
+    };
+    this.shopService.isQuickShopShown = false;
+    // this.shopService.addToCart(this.selectedProduct)
+    console.log(this.selectedProduct);
   }
 }

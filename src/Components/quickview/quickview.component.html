@@ -9,16 +9,13 @@
       </button>
     </div>
     <div class="image-section">
-      <img
-        src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/nlota2087710739_q1_2-0_8077af1c-2697-44de-bd4e-42cad31a16b3.jpg?v=1652168737&width=600"
-        alt="Product Image"
-      />
+      <img src="{{ this.imageUrl }}" alt="Product Image" />
       <button class="prev-btn">&#10094;</button>
       <button class="next-btn">&#10095;</button>
     </div>
     <div class="product-details">
-      <h2>Ridley High Waist</h2>
-      <p>¥5,500</p>
+      <h2>{{ this.name }}</h2>
+      <p>${{ this.price - (this.discountPercent / 100) * this.price }}</p>
       <div class="rating">
         <span>⭐⭐⭐⭐⭐</span>
         <span>(7 reviews)</span>
@@ -27,26 +24,80 @@
         Go kalles this summer with this vintage navy and white striped v-neck
         t-shirt from the Nike.
       </p>
+      <div class="varients">
+        @if(colors.length){
+
+        <div class="size-section">
+          <div class="size">
+            <label>SIZE: </label>
+            <span style="text-transform: uppercase">{{
+              this.selectedColor
+            }}</span>
+          </div>
+          <div class="size-options">
+            @for (color of this.colors; track $index) {
+
+            <button
+              class="size-btn"
+              style="text-transform: uppercase; font-weight: bold"
+              (click)="selectColor(color)"
+              [class.selectedColor]="color === this.selectedColor"
+            >
+              <span style="background:{{ color }};"></span>
+            </button>
+
+            }
+          </div>
+        </div>
+
+        }@else{
+        <span>No color avaible</span>
+        }
+      </div>
       <div class="size-options">
-        <div>
-          <label>Size:</label>
-          <span style="margin-left:10px;">S</span>
+        @if(sizes.length){
+
+        <div class="size-section">
+          <div class="size">
+            <label>SIZE: </label>
+            <span style="text-transform: uppercase">{{
+              this.selectedSize
+            }}</span>
+          </div>
+          <div class="size-options">
+            @for (size of this.sizes; track $index) {
+
+            <button
+              class="size-btn"
+              style="text-transform: uppercase; font-weight: bold"
+              (click)="selectSize(size)"
+              [class.selectedSize]="size === this.selectedSize"
+            >
+              {{ size }}
+            </button>
+
+            }
+          </div>
         </div>
-        <div>
-          <button class="size-btn selected">S</button>
-          <button class="size-btn">L</button>
-        </div>
+
+        }@else{
+        <span>No sizes avaible</span>
+        }
       </div>
       <div class="addToCart">
         <div class="quantity">
-          <button class="qty-btn">
-            <i class="bi-dash-lg"></i>
+          <button (click)="decreaseOrdredQuantity()" class="quantity-btn">
+            <i class="bi bi-dash"></i>
           </button>
-          <span>1</span>
-          <button class="qty-btn">+</button>
+          <span>{{ ordredQuantity }}</span
+          ><button (click)="increaseOrdredQuantity()" class="quantity-btn">
+            <i class="bi bi-plus"></i>
+          </button>
         </div>
         <div class="action-buttons">
-          <button class="add-to-cart-btn">Add to Cart</button>
+          <button class="add-to-cart-btn" (click)="addToCart()">
+            Add to Cart
+          </button>
         </div>
         <div class="more">
           <button><i class="bi-heart"></i></button>
