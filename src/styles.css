@@ -71,7 +71,6 @@ img {
 }
 
 .card {
-  height: 60vh;
   position: relative;
   opacity: 0;
   top: 5rem;
@@ -253,13 +252,24 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@media (max-width:1024px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .best-seller .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width:750px) {
   .cards {
     padding: 1rem;
     grid-template-columns: 1fr 1fr;
 
   }
-  .card{
+
+  .card {
     height: unset;
   }
 
