@@ -16,7 +16,7 @@ export class CarouselComponent implements AfterViewInit {
   constructor(private elRef: ElementRef) {}
 
   ngAfterViewInit(): void { 
-    this.nextSlide();
+    // this.nextSlide();
   }
 
   nextSlide() {

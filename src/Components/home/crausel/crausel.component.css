@@ -100,9 +100,8 @@
   background-color: black;
 }
 
-#firstSlide {
-}
-#secondSlide {
-}
-#thirdSlide {
+@media (max-width:900px) {
+  .carousel-title{
+    font-size: 32px;
+  }
 }
