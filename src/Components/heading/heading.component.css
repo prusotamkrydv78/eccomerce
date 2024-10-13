@@ -169,6 +169,8 @@
 }
 
 .bottomNavigation {
+background-color: white;
+z-index: 9999;
   display: flex;
   position: fixed;
   bottom: 0;

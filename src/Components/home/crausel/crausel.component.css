@@ -14,7 +14,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2; /* Optional background */
+  background-color: #f2f2f2;
+  /* Optional background */
 }
 
 /* Content on the left */
@@ -47,36 +48,40 @@
   background-color: black;
   color: white;
   border: none;
-  cursor: pointer; 
+  cursor: pointer;
   font-size: 16px;
   position: relative;
 }
+
 .carousel-button::before {
   content: "";
-  position: absolute; 
+  position: absolute;
   height: 0%;
   width: 100%;
   bottom: 0;
   left: 0;
-  transition: .2s linear ;
+  transition: .2s linear;
   font-weight: bolder;
-  
+
   font-family: "Poppins", sans-serif !important;
   z-index: 1;
 }
-.carousel-button:hover::before{
+
+.carousel-button:hover::before {
   height: 100%;
   background-color: #00cdff;
 }
-.carousel-button span{
+
+.carousel-button span {
   /* style="z-index: 5; position: relative;  font-family: 'Poppins'" */
   z-index: 5;
   position: relative;
   font-family: "Poppins", sans;
   font-weight: bold;
 
-  
+
 }
+
 /* Pagination dots */
 .carousel-pagination {
   position: absolute;
@@ -101,7 +106,32 @@
 }
 
 @media (max-width:900px) {
-  .carousel-title{
+  .carousel-title {
     font-size: 32px;
+  }
+
+  .carousel-button {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+
+  .fristSlide {
+    top: 20%;
+  }
+
+  .carousel-content {
+    right: 10% !important;
+  }
+
+  #firstSlide {
+    background-image: url('./slide01.png') !important;
+  }
+
+  #secondSlide {
+    background-image: url('./slide02.png') !important;
+  }
+
+  #thirdSlide {
+    background-image: url('./slide03.png') !important;
   }
 }
