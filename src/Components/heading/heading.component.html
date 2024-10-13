@@ -21,7 +21,10 @@
     </ul>
   </nav>
 
-  <nav class="md-nav-links " [ngClass]="isNavbarShown ? 'showNavbar ' : 'hideNavbar'">
+  <nav
+    class="md-nav-links"
+    [ngClass]="isNavbarShown ? 'showNavbar ' : 'hideNavbar'"
+  >
     <div class="close-navbar" (click)="toggleNavbar()">
       <i class="bi bi-x-lg"></i>
     </div>
@@ -39,7 +42,7 @@
       <li id="mdnavItem"><a routerLink="#">Buy Theme</a></li>
     </ul>
   </nav>
-
+ 
   <div class="icons animateIcon">
     <a routerLink="#" class="icon search-icon">
       <i class="bi bi-search"></i>
@@ -57,3 +60,39 @@
     </a>
   </div>
 </header>
+<nav class="bottomNavigation">
+  <div class="shop">
+    <a routerLink="/shop">
+      <i class="bi bi-bag"></i>
+      <span>shop</span>
+    </a>
+  </div>
+  <div class="shop">
+    <a routerLink="/shop">
+      <i class="bi bi-heart"></i>
+      <span>wishlist</span>
+      
+      <span class="badge">1</span>
+    </a>
+  </div>
+  <div class="shop">
+    <a routerLink="/shop">
+      <i class="bi bi-cart3"></i>
+      
+      <span class="badge">1</span>
+      <span>cart</span>
+    </a>
+  </div>
+  <div class="shop">
+    <a routerLink="/shop">
+      <i class="bi bi-person"></i>
+      <span>account</span>
+    </a>
+  </div>
+  <div class="shop">
+    <a routerLink="/shop">
+      <i class="bi bi-search"></i>
+      <span>search</span>
+    </a>
+  </div>
+</nav>
