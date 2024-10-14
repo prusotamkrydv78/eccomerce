@@ -175,3 +175,13 @@ h2 {
 .add-to-cart-btn:hover {
   background-color: #00a1b9;
 }
+@media (max-width:500px) {
+  .product-modal{
+    padding: 0px;
+  }
+  .product-modal-content{
+    width: 70vw;
+    height: 17rem;
+    padding: 20px;
+  }
+}

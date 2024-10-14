@@ -29,7 +29,7 @@
 
         <div class="size-section">
           <div class="size">
-            <label>SIZE: </label>
+            <label>Color: </label>
             <span style="text-transform: uppercase">{{
               this.selectedColor
             }}</span>
@@ -39,11 +39,12 @@
 
             <button
               class="size-btn"
-              style="text-transform: uppercase; font-weight: bold"
+              style="text-transform: uppercase; font-weight: bold; 
+              background-color :'{{ color }}';"
               (click)="selectColor(color)"
               [class.selectedColor]="color === this.selectedColor"
             >
-              <span style="background:{{ color }};"></span>
+              <span style="background-color :'{{ color }}';"></span>
             </button>
 
             }
@@ -85,25 +86,30 @@
         }
       </div>
       <div class="addToCart">
-        <div class="quantity">
-          <button (click)="decreaseOrdredQuantity()" class="quantity-btn">
-            <i class="bi bi-dash"></i>
-          </button>
-          <span>{{ ordredQuantity }}</span
-          ><button (click)="increaseOrdredQuantity()" class="quantity-btn">
-            <i class="bi bi-plus"></i>
-          </button>
+        <div>
+          <div class="action-buttons">
+            <button class="add-to-cart-btn" (click)="addToCart()">
+              Add to Cart
+            </button>
+          </div>
         </div>
-        <div class="action-buttons">
-          <button class="add-to-cart-btn" (click)="addToCart()">
-            Add to Cart
-          </button>
-        </div>
-        <div class="more">
-          <button><i class="bi-heart"></i></button>
-        </div>
-        <div class="more">
-          <button><i class="bi bi-shuffle"></i></button>
+        <div>
+          <div class="quantity">
+            <button (click)="decreaseOrdredQuantity()" class="quantity-btn">
+              <i class="bi bi-dash"></i>
+            </button>
+            <span>{{ ordredQuantity }}</span
+            ><button (click)="increaseOrdredQuantity()" class="quantity-btn">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+
+          <div class="more">
+            <button><i class="bi-heart"></i></button>
+          </div>
+          <div class="more">
+            <button><i class="bi bi-shuffle"></i></button>
+          </div>
         </div>
       </div>
       <div class="buy-now-btn">

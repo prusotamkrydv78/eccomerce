@@ -16,7 +16,8 @@
   background-color: #fff;
   max-width: 900px;
   width: 90%;
-  position:relative;
+  position: relative;
+  height: 95vh;
 }
 
 .image-section {
@@ -48,13 +49,15 @@
   background-color: #00a1b9;
   color: white;
 }
-.button{
+
+.button {
   position: absolute;
-    z-index: 10000;
-    right: -15px;
-    background: black;
-    top: -15px;
+  z-index: 10000;
+  right: -15px;
+  background: black;
+  top: -15px;
 }
+
 .button button {
   cursor: pointer;
   background-color: transparent;
@@ -63,6 +66,7 @@
   font-size: 32px;
   border: none;
 }
+
 .next-btn {
   right: 10px;
 }
@@ -70,6 +74,7 @@
 .product-details {
   flex: 1;
   padding-left: 30px;
+  overflow-y: scroll;
 }
 
 .product-details h2 {
@@ -77,24 +82,29 @@
   color: #3d3d3d9e;
   margin-bottom: 0;
 }
+
 .product-details p:nth-child(2) {
   margin: 10px 0;
   font-size: 30px;
   font-weight: 600;
 }
+
 .product-details .description {
   color: #acacac;
   font-size: 14px;
 }
+
 .rating {
   display: flex;
   align-items: center;
   gap: 10px;
 }
- .varients {
+
+.varients {
   display: flex;
   gap: 5px;
 }
+
 .varients .color {
   display: block;
   height: 15px;
@@ -103,6 +113,7 @@
   opacity: 0.69;
   cursor: pointer;
 }
+
 .description {
   margin: 10px 0;
 }
@@ -112,7 +123,7 @@
   display: flex;
   gap: 8px;
   text-transform: capitalize;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .size-btn {
@@ -127,6 +138,7 @@
   font-size: 16px;
   transition: 0.2s linear;
 }
+
 .size-btn:hover {
   border-color: black;
 }
@@ -135,6 +147,7 @@
   background-color: #000;
   color: #fff;
 }
+
 .selectedColor {
   background-color: rgb(126, 126, 185);
   color: #fff;
@@ -159,6 +172,12 @@
 
   margin: 10px 0;
 }
+
+.addToCart>div:nth-child(2) {
+  display: flex;
+  gap: 8px;
+}
+
 .addToCart .quantity button {
   outline: none;
   border: none;
@@ -172,6 +191,7 @@
   cursor: pointer;
   color: #23b2c7;
 }
+
 .qty-btn {
   padding: 5px 10px;
   border: 1px solid #ccc;
@@ -193,6 +213,7 @@
   font-size: 16px;
   position: relative;
 }
+
 .add-to-cart-btn::afte {
   content: "";
   position: absolute;
@@ -210,6 +231,7 @@
 
   margin: 10px 0;
 }
+
 .buy-now-btn button {
   outline: none;
   border: none;
@@ -223,6 +245,7 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+
 .buy-now-btn button:hover {
   cursor: pointer;
   background: #23b2c7;
@@ -241,10 +264,12 @@
   margin: 10px 0;
   font-size: 19px;
 }
+
 .social-icons span {
   cursor: pointer;
   transition: 0.2s linear;
 }
+
 .social-icons span:hover {
   color: #23b2c7;
 }
@@ -253,6 +278,7 @@
   margin-right: 10px;
   color: black;
 }
+
 .more {
   background: none;
   font-size: 25px;
@@ -268,40 +294,92 @@
   justify-content: center;
   transition: 0.2s linear;
 }
+
 .more button {
   outline: none;
   border: none;
   background: transparent;
 }
+
 .more:hover {
   border-color: #23b2c7;
   cursor: pointer;
 }
+
 .more:hover button {
   color: #23b2c7;
 }
-.view-full-details{
-  display:flex;
-  align-items:center; 
-  gap:6px;
-  
+
+.view-full-details {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
 }
 
-.view-full-details button{    outline: none;
+.view-full-details button {
+  outline: none;
   border: none;
   background: none;
   padding: 0;
   font-size: 15px;
   font-weight: bold;
   align-items: center;
-  transition: 0.2s linear; 
+  transition: 0.2s linear;
   cursor: pointer;
 }
-.view-full-details button:hover{
-  
+
+.view-full-details button:hover {
+
   color: #23b2c7;
 }
 
-.view-full-details button:hover i{
+.view-full-details button:hover i {
   color: #23b2c7;
+}
+
+@media (max-width:768px) {
+  .modal {
+    z-index: 99999;
+    overflow-y: scroll;
+  }
+
+  .modal-content {
+
+    flex-direction: column;
+    height: 95vh;
+    overflow-y: scroll;
+  }
+
+  .button {
+    position: fixed;
+    right: 4px;
+    top: 1%;
+  }
+
+  .product-details {
+    padding: 0 15px;
+    overflow-y: unset;
+  }
+
+  .addToCart {
+
+    flex-direction: column-reverse;
+    width: 100%;
+
+    gap: 1vh;
+    align-items: start;
+  }
+
+  .addToCart>div:nth-child(1) {
+    width: 100%;
+  }
+
+  .addToCart .action-buttons button {
+    width: 100%;
+  }
+
+  .buy-now-btn button {
+    width: 100%;
+  }
 }
