@@ -31,6 +31,15 @@
         <span></span>
         <span></span>
       </div>
+
+      <div
+        class="alignment showIn1Column"
+        (click)="showInColumn1()"
+        [ngClass]="{ activeCol: showIn1Column }"
+      >
+        <span></span>
+      </div>
+
       <div
         class="alignment"
         (click)="showInColumn2()"
@@ -94,7 +103,9 @@
 <div
   class="cards"
   [ngClass]="
-    showIn2Column
+    showIn1Column
+      ? 'showIn1Column'
+      : showIn2Column
       ? 'showIn2Column'
       : showIn3Column
       ? 'showIn3Column'
@@ -123,7 +134,7 @@
           <i class="bi bi-shuffle"></i>
         </div>
         <div class="buttons" *ngIf="!isListed">
-          <button  (click)="this.shopService.toggleQuickViewModel()">
+          <button (click)="this.shopService.toggleQuickViewModel()">
             <span>quick view</span>
             <span> <i class="bi bi-eye"></i></span>
           </button>
@@ -141,47 +152,52 @@
         </div>
       </div>
     </div>
-    <div class="details">
-      <div class="name" style="color: black; font-weight: bold">
-        {{ product.name }}
-      </div>
-      @if (product.discountPercent==0) {
+    <div class="about-product">
+      <div class="details">
+        <div class="name" style="color: black; font-weight: bold">
+          {{ product.name }}
+        </div>
+        @if (product.discountPercent==0) {
 
-      <div class="price">
-        {{ product.price | currency }}
-      </div>
-
-      }@else {
-      <div class="price">
-        <span style="text-decoration: line-through">
+        <div class="price">
           {{ product.price | currency }}
-        </span>
-        <span style="color: red">{{
-          product.price - (product.discountPercent / 100) * product.price
-            | currency
-        }}</span>
-      </div>
-      }
-      <div class="description" style="font-size: 14px" *ngIf="isListed">
-        {{ product.description }}
-      </div>
-      <div class="varients">
-        @for (color of product.colors; track $index) {
-        <span class="color" [style.background-color]="color"></span>
+        </div>
+
+        }@else {
+        <div class="price">
+          <span style="text-decoration: line-through">
+            {{ product.price | currency }}
+          </span>
+          <span style="color: red">{{
+            product.price - (product.discountPercent / 100) * product.price
+              | currency
+          }}</span>
+        </div>
         }
+        <div class="description" style="font-size: 14px" *ngIf="isListed">
+          {{ product.description }}
+        </div>
+        <div class="varients">
+          @for (color of product.colors; track $index) {
+          <span class="color" [style.background-color]="color"></span>
+          }
+        </div>
       </div>
-    </div>
-    <div class="buttons" *ngIf="isListed">
-      <button  (click)="this.shopService.toggleQuickViewModel()" (click)="this.shopService.getQuickViewedProduct($index)">
-        <span>quick view</span>
-        <span> <i class="bi bi-eye"></i></span>
-      </button>
-      <button (click)="this.shopService.toggleQuickShopModel($index)" >
-        <span>quick shop</span>
-        <span>
-          <i class="bi bi-cart3"></i>
-        </span>
-      </button>
+      <div class="buttons" *ngIf="isListed">
+        <button
+          (click)="this.shopService.toggleQuickViewModel()"
+          (click)="this.shopService.getQuickViewedProduct($index)"
+        >
+          <span>quick view</span>
+          <span> <i class="bi bi-eye"></i></span>
+        </button>
+        <button (click)="this.shopService.toggleQuickShopModel($index)">
+          <span>quick shop</span>
+          <span>
+            <i class="bi bi-cart3"></i>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 

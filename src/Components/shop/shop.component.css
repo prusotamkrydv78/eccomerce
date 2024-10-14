@@ -187,6 +187,27 @@
   background: black;
 }
 
+/* style to show the cards in 1 column */
+.alignment:nth-child(2) {
+  display: none;
+}
+.showIn1Column .card .price {
+  display: flex;
+  gap: 40px;
+}  
+
+.showIn1Column .card {
+  flex-direction: column;
+  height: auto;
+  border: none;
+}
+
+.showIn1Column .card img {
+  height: unset;
+  width: 100%;
+  object-fit: cover;
+}
+
 /* style to show the cards in 2 column */
 .showIn2Column {
   grid-template-columns: 1fr 1fr !important;
@@ -486,9 +507,11 @@
   transition: .3s linear;
   cursor: pointer;
 }
-.filter-section label:hover{
-  color:#56CFE0;
+
+.filter-section label:hover {
+  color: #56CFE0;
 }
+
 .color-box {
   display: inline-block;
   width: 15px;
@@ -556,13 +579,84 @@ button.btn-primary {
 }
 
 button.btn-primary:hover {
-  background:#56CFE1;
+  background: #56CFE1;
   color: #fff;
   border-color: #56CFE1;
 }
+
 .mdc-slider__track--active_fill {
   background-color: #56CFE1 !important;
-}.mdc-slider__thumb-knob {
+}
+
+.mdc-slider__thumb-knob {
   background-color: #fff !important;
 }
- 
+
+.about-product {
+  display: flex;
+}
+
+.view-icons .showIn1Column  span {
+  width: 20px !important;
+}
+.showIn1Column .card .about-product span {
+  
+  width: 15px !important;
+}
+
+@media (max-width:768px) {
+  .controls {
+    margin: 2vw 0;
+  }
+
+  .alignment {
+    display: none;
+  }
+
+  .alignment:nth-child(1) {
+    display: flex;
+  }
+
+  .alignment:nth-child(2) {
+    display: flex;
+  }
+
+  .alignment:nth-child(3) {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sort-dropdown {
+    width: 20vw;
+    padding: 0 8px;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .about-product {
+    flex-direction: column;
+    gap: 2vh;
+  }
+
+  .buttons {
+    align-items: start !important;
+  }
+
+  .showIn2Column .card {
+    height: auto;
+  }
+
+  .showIn2Column .card>div:first-child {
+    height: auto;
+  }
+}

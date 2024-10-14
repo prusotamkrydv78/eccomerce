@@ -39,6 +39,7 @@ export class ShopComponent {
     console.log("jld")
   }
   isListed: boolean = true;
+  showIn1Column = false;
   showIn2Column = false;
   showIn3Column = false;
   showIn4Column = false;
@@ -59,6 +60,17 @@ export class ShopComponent {
 
   showInList() {
     this.isListed = true;
+    
+    this.showIn1Column = false;
+    this.showIn2Column = false;
+    this.showIn3Column = false;
+    this.showIn4Column = false;
+    this.showIn5Column = false;
+    this.showIn6Column = false;
+  }
+  showInColumn1() {
+    this.isListed = false;
+    this.showIn1Column = true;
     this.showIn2Column = false;
     this.showIn3Column = false;
     this.showIn4Column = false;
@@ -67,6 +79,7 @@ export class ShopComponent {
   }
   showInColumn2() {
     this.isListed = false;
+    this.showIn1Column = false;
     this.showIn2Column = true;
     this.showIn3Column = false;
     this.showIn4Column = false;
@@ -75,6 +88,7 @@ export class ShopComponent {
   }
   showInColumn3() {
     this.isListed = false;
+    this.showIn1Column = false;
     this.showIn2Column = false;
     this.showIn3Column = true;
     this.showIn4Column = false;
@@ -83,6 +97,7 @@ export class ShopComponent {
   }
   showInColumn4() {
     this.isListed = false;
+    this.showIn1Column = false;
     this.showIn2Column = false;
     this.showIn3Column = false;
     this.showIn4Column = true;
@@ -91,6 +106,7 @@ export class ShopComponent {
   }
   showInColumn5() {
     this.isListed = false;
+    this.showIn1Column = false;
     this.showIn2Column = false;
     this.showIn3Column = false;
     this.showIn4Column = false;
@@ -99,6 +115,7 @@ export class ShopComponent {
   }
   showInColumn6() {
     this.isListed = false;
+    this.showIn1Column = false;
     this.showIn2Column = false;
     this.showIn3Column = false;
     this.showIn4Column = false;
