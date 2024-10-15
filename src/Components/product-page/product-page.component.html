@@ -1,17 +1,16 @@
-<div class="modal">
+<div class="product-page">
   <div class="modal-content">
-    <div class="button">
-      <button
-        class="close-btn"
-        (click)="this.shopService.toggleQuickViewModel()"
-      >
-        <i class="bi bi-x"></i>
-      </button>
-    </div>
-    <div class="image-section">
-      <img src="{{ this.imageUrl }}" alt="Product Image" />
-      <button class="prev-btn">&#10094;</button>
-      <button class="next-btn">&#10095;</button>
+    <div class="image-section" (mousemove)="onMouseMove($event)">
+      <img src="{{ this.imageUrl }}" alt="Product Image" /> 
+      <div style="  z-index:999999999;" class="image-preview" > 
+  
+        <img
+          src="{{ this.imageUrl }}"
+          alt="Product Image"
+          style="transition: all .05s ;"
+         [ngStyle]="{'transform': transformStyle}"
+        /> 
+      </div>
     </div>
     <div class="product-details">
       <h2>{{ this.name }}</h2>
@@ -26,48 +25,44 @@
       </p>
       <div class="varients">
         @if(colors.length){
-
+    
         <div class="size-section">
           <div class="size">
             <label>Color: </label>
-            <span style="text-transform: uppercase">{{
-              this.selectedColor
-            }}</span>
+            <span style="text-transform: uppercase">{{ this.selectedColor }}</span>
           </div>
           <div class="size-options">
             @for (color of this.colors; track $index) {
-
+    
             <button
               class="size-btn"
               style="text-transform: uppercase; font-weight: bold; 
-              background-color :{{ color }}"
+                background-color :'{{ color }}';"
               (click)="selectColor(color)"
               [class.selectedColor]="color === this.selectedColor"
             >
-              <span style="background-color :'{{ this.color }}';"></span>
+              <span style="background-color :'{{ color }}';"></span>
             </button>
-
+    
             }
           </div>
         </div>
-
+    
         }@else{
         <span>No color avaible</span>
         }
       </div>
       <div class="size-options">
         @if(sizes.length){
-
+    
         <div class="size-section">
           <div class="size">
             <label>SIZE: </label>
-            <span style="text-transform: uppercase">{{
-              this.selectedSize
-            }}</span>
+            <span style="text-transform: uppercase">{{ this.selectedSize }}</span>
           </div>
           <div class="size-options">
             @for (size of this.sizes; track $index) {
-
+    
             <button
               class="size-btn"
               style="text-transform: uppercase; font-weight: bold"
@@ -76,11 +71,11 @@
             >
               {{ size }}
             </button>
-
+    
             }
           </div>
         </div>
-
+    
         }@else{
         <span>No sizes avaible</span>
         }
@@ -103,7 +98,7 @@
               <i class="bi bi-plus"></i>
             </button>
           </div>
-
+    
           <div class="more">
             <button><i class="bi-heart"></i></button>
           </div>
@@ -130,10 +125,7 @@
           <i class="bi bi-tiktok"></i>
         </span>
       </div>
-      <div class="view-full-details">
-        <button>View Full Details</button>
-        <span><i class="bi bi-arrow-right"></i></span>
-      </div>
     </div>
   </div>
 </div>
+

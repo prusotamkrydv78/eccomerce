@@ -1,0 +1,417 @@
+.product-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10vh 0;
+}
+
+.image-preview {
+  transform:scale(0) ;
+  height: 20rem;
+  width: 20rem;
+  border: 0px solid gray;
+  position: absolute;
+  left: 30rem;
+  top: 5rem;
+  overflow: hidden;
+  transition:.3s linear;
+  -webkit-transition:.1s linear;
+  -moz-transition:.3s linear;
+  -ms-transition:.3s linear;
+  -o-transition:.3s linear;
+  -webkit-transform:scale(0) ;
+  -moz-transform:scale(0) ;
+  -ms-transform:scale(0) ;
+  -o-transform:scale(0) ;
+}
+
+.image-preview span {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.image-section:hover .image-preview {
+
+  opacity: 1;
+  border: 1px solid rgba(196, 196, 196, 0.719);
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+.image-section img{  cursor: grab;}
+
+.modal-content {
+  display: flex;
+  background-color: #fff;
+  max-width: 900px;
+  width: auto;
+  position: relative;
+  height: unset;
+}
+
+.image-section {
+  position: relative;
+  flex: 1;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.button:hover {
+  background-color: #00a1b9;
+  color: white;
+}
+
+.button {
+  position: absolute;
+  z-index: 10000;
+  right: -15px;
+  background: black;
+  top: -15px;
+}
+
+.button button {
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  font-size: 32px;
+  border: none;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.product-details {
+  flex: 1;
+  padding-left: 30px;
+}
+
+.product-details h2 {
+  font-size: 16px;
+  color: #3d3d3d9e;
+  margin-bottom: 0;
+}
+
+.product-details p:nth-child(2) {
+  margin: 10px 0;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.product-details .description {
+  color: #acacac;
+  font-size: 14px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.varients {
+  display: flex;
+  gap: 5px;
+}
+
+.varients .color {
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  opacity: 0.69;
+  cursor: pointer;
+}
+
+.description {
+  margin: 10px 0;
+}
+
+.size-options {
+  margin: 20px 0;
+  display: flex;
+  gap: 8px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.size-btn {
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.2s linear;
+}
+
+.size-btn:hover {
+  border-color: black;
+}
+
+.selectedSize {
+  background-color: #000;
+  color: #fff;
+}
+
+.selectedColor {
+  background-color: rgb(126, 126, 185);
+  color: #fff;
+
+}
+
+.quantity {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 0 5px;
+}
+
+.addToCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 3vw;
+
+  margin: 10px 0;
+}
+
+.addToCart>div:nth-child(2) {
+  display: flex;
+  gap: 8px;
+}
+
+.addToCart .quantity button {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.2s linear;
+}
+
+.addToCart .quantity button:hover {
+  cursor: pointer;
+  color: #23b2c7;
+}
+
+.qty-btn {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.add-to-cart-btn {
+  background-color: #56cfe1;
+  color: white;
+  padding: 10px 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: 16px;
+  position: relative;
+}
+
+.add-to-cart-btn::afte {
+  content: "";
+  position: absolute;
+  background-color: #33808b;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.buy-now-btn {
+  border: none;
+  cursor: pointer;
+  display: flex;
+
+  margin: 10px 0;
+}
+
+.buy-now-btn button {
+  outline: none;
+  border: none;
+  background: black;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  width: 90%;
+  height: 2.5rem;
+  transition: 0.2s linear;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.buy-now-btn button:hover {
+  cursor: pointer;
+  background: #23b2c7;
+}
+
+.extra-info a {
+  margin-right: 10px;
+  color: #00bfff;
+  cursor: pointer;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 19px;
+}
+
+.social-icons span {
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.social-icons span:hover {
+  color: #23b2c7;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: black;
+}
+
+.more {
+  background: none;
+  font-size: 25px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  border-radius: 50px;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s linear;
+}
+
+.more button {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.more:hover {
+  border-color: #23b2c7;
+  cursor: pointer;
+}
+
+.more:hover button {
+  color: #23b2c7;
+}
+
+.view-full-details {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+}
+
+.view-full-details button {
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 15px;
+  font-weight: bold;
+  align-items: center;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.view-full-details button:hover {
+
+  color: #23b2c7;
+}
+
+.view-full-details button:hover i {
+  color: #23b2c7;
+}
+
+
+@media (max-width:768px) {
+  .modal {
+    z-index: 99999;
+    overflow-y: scroll;
+  }
+
+  .modal-content {
+
+    flex-direction: column;
+    height: 95vh;
+    overflow-y: scroll;
+  }
+
+  .button {
+    position: fixed;
+    right: 4px;
+    top: 1%;
+  }
+
+  .product-details {
+    padding: 0 15px;
+    overflow-y: unset;
+  }
+
+  .addToCart {
+
+    flex-direction: column-reverse;
+    width: 100%;
+
+    gap: 1vh;
+    align-items: start;
+  }
+
+  .addToCart>div:nth-child(1) {
+    width: 100%;
+  }
+
+  .addToCart .action-buttons button {
+    width: 100%;
+  }
+
+  .buy-now-btn button {
+    width: 100%;
+  }
+}
