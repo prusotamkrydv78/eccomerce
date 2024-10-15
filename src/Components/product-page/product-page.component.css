@@ -180,9 +180,7 @@
 }
 
 .selectedColor {
-  background-color: rgb(126, 126, 185);
-  color: #fff;
-
+  border: 2px solid black; 
 }
 
 .quantity {
@@ -372,15 +370,13 @@
 
 @media (max-width:768px) {
   .modal {
-    z-index: 99999;
-    overflow-y: scroll;
+    z-index: 99999; 
   }
 
   .modal-content {
 
     flex-direction: column;
-    height: 95vh;
-    overflow-y: scroll;
+    height: auto; 
   }
 
   .button {
@@ -390,8 +386,7 @@
   }
 
   .product-details {
-    padding: 0 15px;
-    overflow-y: unset;
+    padding: 0 15px; 
   }
 
   .addToCart {

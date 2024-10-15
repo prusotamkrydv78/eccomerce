@@ -3,6 +3,7 @@ import { ShopService } from '../shopService/shop.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import ProductData from '../../ProductDatas';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-page',
@@ -15,25 +16,45 @@ export class ProductPageComponent {
   shopService = inject(ShopService);
   isQuickViewShown = this.shopService.isQuickViewShown;
   toggleQuickViewModel = this.shopService.toggleQuickViewModel;
-  quickViewClickItem = ProductData[0];
-
-  name = this.quickViewClickItem.name;
-  price = this.quickViewClickItem.price;
-  discountPercent = this.quickViewClickItem.discountPercent;
-  quantity = this.quickViewClickItem.quantity;
-  imageUrl = this.quickViewClickItem.img;
-  ordredQuantity = 1;
-  sizes = this.quickViewClickItem.sizes;
-  colors = this.quickViewClickItem.colors;
-  selectedSize = this.sizes[0];
-  selectedColor = this.colors[0];
+  quickViewClickItem: any;
+  name: String;
+  price: number;
+  discountPercent: number;
+  quantity: number;
+  imageUrl: string;
+  ordredQuantity: number;
+  sizes: string[];
+  colors: string[];
+  selectedSize: string;
+  selectedColor: string;
+  id: number;
+  route = inject(ActivatedRoute);
+  ngOnInit() {
+    console.log(this.id);
+  }
   constructor() {
+    this.id=0
+    this.route.params.subscribe((params) => {
+      this.id = +params['id']-1; // '+' converts string to number 
+    });  
+    this.quickViewClickItem = ProductData[this.id];
+    this.name = this.quickViewClickItem.name;
+    this.price = this.quickViewClickItem.price;
+    this.discountPercent = this.quickViewClickItem.discountPercent;
+    this.quantity = this.quickViewClickItem.quantity;
+    this.imageUrl = this.quickViewClickItem.img;
+    this.ordredQuantity = 1;
+    this.sizes = this.quickViewClickItem.sizes;
+    this.colors = this.quickViewClickItem.colors;
+    this.selectedSize = this.sizes[0];
+    this.selectedColor = this.colors[0];
     console.log(this.colors);
     this.shopService.toggleQuickShopModel;
     if (this.quantity < 1) {
       this.ordredQuantity = 0;
     }
   }
+
   increaseOrdredQuantity() {
     if (this.quantity < 1) {
       this.ordredQuantity = 0;
@@ -91,18 +112,20 @@ export class ProductPageComponent {
     this.x_coordinate = event.clientX - rect.left;
     this.y_coordinate = event.clientY - rect.top;
     if (this.x_coordinate < 80) {
-      this.x_coordinate = this.x_coordinate+20;
+      this.x_coordinate = this.x_coordinate + 20;
     }
     if (this.y_coordinate < 80) {
       this.y_coordinate = 80;
     }
-    if (this.x_coordinate>180) {
-      this.x_coordinate=180
+    if (this.x_coordinate > 180) {
+      this.x_coordinate = 180;
     }
-    if (this.y_coordinate>240) {
-      this.y_coordinate=240
+    if (this.y_coordinate > 240) {
+      this.y_coordinate = 240;
     }
-    this.transformStyle=`scale(2) translate(${-(this.x_coordinate-100)}px,${-(this.y_coordinate-160)}px)`
+    this.transformStyle = `scale(2) translate(${-(
+      this.x_coordinate - 100
+    )}px,${-(this.y_coordinate - 160)}px)`;
     console.log(`Mouse X: ${this.x_coordinate}, Mouse Y: ${this.y_coordinate}`);
   }
 }

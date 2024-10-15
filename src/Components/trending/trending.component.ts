@@ -1,9 +1,10 @@
-import {  AfterViewInit, Component } from '@angular/core';
+import {  AfterViewInit, Component, inject } from '@angular/core';
 import ProductData from '../../../src/ProductDatas'
 import { FormsModule } from '@angular/forms';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import {gsap } from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ShopService } from '../shopService/shop.service';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -17,6 +18,7 @@ export class TrendingComponent implements AfterViewInit  {
   ProductData:any[] = ProductData
   
 
+  shopService = inject(ShopService);
   ngAfterViewInit(){
     gsap.to("#productCard",{
       opacity:1,

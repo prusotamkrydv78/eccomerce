@@ -6,7 +6,7 @@
       <div class="cards">
         @for (product of ProductData; track $index) {
     
-        <div class="card" id="productCard">
+        <div class="card" id="productCard"  (click)="this.shopService.navigateToProductDetails(product)">
           <div class="img" style="position: relative; ">
             <div class="isNew" *ngIf="product.isNew">New</div>
     

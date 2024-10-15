@@ -608,7 +608,9 @@ button.btn-primary:hover {
   .controls {
     margin: 2vw 0;
   }
-
+.card{
+  padding:16px 10px !important;
+}
   .alignment {
     display: none;
   }

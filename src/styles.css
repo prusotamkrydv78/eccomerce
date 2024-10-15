@@ -264,7 +264,7 @@ body {
 
 @media (max-width:750px) {
   .cards {
-    padding: 1rem;
+    padding: 1rem .5rem;
     grid-template-columns: 1fr 1fr;
 
   }

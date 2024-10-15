@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import ProductData from '../../ProductDatas';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShopService {
-  constructor() { }
+  router = inject(Router);
+  constructor() {}
   // logics for quick shop
   isQuickShopShown: boolean = false;
   quickShopClickItemIndex: number = 0;
@@ -35,7 +37,13 @@ export class ShopService {
       if (item.id == this.quickViewClickItemIndex + 1) {
         return item;
       }
-    }); 
+    });
     return this.quickViewClickItem[0];
+  }
+
+  //logics for product-details navigation
+  navigateToProductDetails(product: any) {
+    console.log(product.id);
+    this.router.navigate(['/product',product.id])
   }
 }

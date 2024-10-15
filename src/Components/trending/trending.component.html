@@ -6,8 +6,14 @@
   <div class="cards">
     @for (product of ProductData; track $index) {
 
-    <div class="card" id="productCard"  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
-      <div class="img" style="position: relative;">
+    <div
+      class="card"
+      id="productCard"
+      (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()"
+      (click)="this.shopService.navigateToProductDetails(product)"
+    >
+      <div class="img" style="position: relative">
         <div class="isNew" *ngIf="product.isNew">New</div>
 
         <div class="discount" *ngIf="product.discountPercent">
@@ -67,4 +73,3 @@
     }
   </div>
 </div>
- 

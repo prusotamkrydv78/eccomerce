@@ -29,8 +29,14 @@ export class PopupComponent {
   ];
 
   copyCode() {
-    navigator.clipboard.writeText('CODE15OFF');
-    alert('Code copied!');
+    // navigator.clipboard.writeText('CODE15OFF');
+    // navigator.vibrate(10000);
+    navigator.share({
+      title: 'Check this out!',
+      text: 'Here is something interesting for you!',
+      url: 'https://www.instagram.com/prusotamydv',  // The URL you want to share
+    })
+    // alert('Code copied!');
   }
 
   grabDiscount() {

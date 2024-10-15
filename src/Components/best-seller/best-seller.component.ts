@@ -1,6 +1,7 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import ProductData from '../../ProductDatas'; 
+import { ShopService } from '../shopService/shop.service';
 @Component({
   selector: 'app-best-seller',
   standalone: true,
@@ -10,4 +11,6 @@ import ProductData from '../../ProductDatas';
 })
 export class BestSellerComponent {
 ProductData:any[]= ProductData
+
+shopService = inject(ShopService); 
 }
