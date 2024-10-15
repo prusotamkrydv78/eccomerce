@@ -38,7 +38,7 @@ export class ProductPageComponent {
       this.id = +params['id']-1; // '+' converts string to number 
     });  
     this.quickViewClickItem = ProductData[this.id];
-    this.name = this.quickViewClickItem.name;
+    this.name = this.quickViewClickItem.name; 
     this.price = this.quickViewClickItem.price;
     this.discountPercent = this.quickViewClickItem.discountPercent;
     this.quantity = this.quickViewClickItem.quantity;
