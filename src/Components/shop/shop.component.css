@@ -133,6 +133,8 @@
   display: grid;
   gap: 0;
   grid-template-columns: 1fr;
+  
+  overflow-x: hidden;
 }
 
 .card {
@@ -609,7 +611,7 @@ button.btn-primary:hover {
     margin: 2vw 0;
   }
 .card{
-  padding:16px 10px !important;
+  padding:16px 5px !important;
 }
   .alignment {
     display: none;

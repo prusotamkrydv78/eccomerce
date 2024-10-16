@@ -1,18 +1,28 @@
-/* Main Popup Container */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+.close {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+}
+.close button {
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 40px;
+  cursor: pointer;
+  background: lightskyblue;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
+  justify-content: center;
+  transition: 0.2s linear;
+}
+.close button:hover {
+  background: #ee8a9d;
 }
 
 .popup-content {
+  position: relative;
   display: flex;
   background-color: #fff;
   max-width: 75vw;
@@ -45,6 +55,7 @@
 
 .popup-right {
   flex: 1;
+  overflow: hidden;
 }
 
 h2 {
@@ -81,14 +92,24 @@ p {
   font-weight: bold;
   font-size: 16px;
   background: white;
-  transition: 0.2s linear ;
+  transition: 0.2s linear;
   transform: scale(0);
   opacity: 0;
+}
+.varient {
+  display: flex;
+  gap: 4px;
+}
+.color span {
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
 }
 
 .cupon button:hover {
   background: #979797 !important;
-  color: white !important; 
+  color: white !important;
 }
 .code-box {
   border: 2px solid #f3f3f3;
@@ -136,7 +157,7 @@ p {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 28rem;
+  height: 80%;
 }
 
 .product-item {
@@ -167,4 +188,57 @@ p {
   font-weight: normal;
   font-size: 14px;
   color: #888;
+}
+
+@media (max-width: 768px) {
+  .popup-content {
+    flex-direction: column;
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .product-list {
+    overflow-y: unset;
+  }
+  .close {
+    right: 5px;
+    top: 5px;
+  }
+  .popup-right {
+    overflow: unset;
+    height:auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .popup-left {
+    padding: 30px 15px;
+  }
+  .cupon .copy {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .discount-btn {
+    background-color: #00bfff;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .product-details p {
+    font-size: 14px;
+  }
+  .popup-content {
+    max-width: 85vw;
+  }
+  .color span {
+    height: 12px;
+    width: 12px;
+  }
+
+  .close button {
+    background: #9ce1f9cc;
+    backdrop-filter: blur(15px);
+  }
 }

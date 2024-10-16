@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import RecommendedProducts from '../../Recommended';
+import { ShopService } from '../shopService/shop.service';
 
 @Component({
   selector: 'app-popup',
@@ -10,34 +12,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './popup.component.css',
 })
 export class PopupComponent {
-  products = [
-    {
-      name: 'Amara Reversible Jacket',
-      price: '¥7,100',
-      image: 'path-to-image',
-    },
-    {
-      name: 'Anti Slip Exercise Yoga Mat',
-      price: '¥1,900 - ¥2,900',
-      image: 'path-to-image',
-    },
-    {
-      name: 'Beach Babe - Malibu Bikini',
-      price: '¥5,800',
-      image: 'path-to-image',
-    },
-  ];
+  RecommendedProduct = RecommendedProducts;
+  showPopup = false;
+  shopService = inject(ShopService);
 
   copyCode() {
     navigator.clipboard.writeText('CODE15OFF');
-    
   }
 
   grabDiscount() {
     alert('Discount applied!');
-  }
-
-  closePopup() {
-    // logic to close popup
   }
 }

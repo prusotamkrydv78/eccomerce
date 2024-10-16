@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { ShopService } from '../shopService/shop.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css',
 })
-export class ProductPageComponent {
+export class ProductPageComponent implements OnInit {
   shopService = inject(ShopService);
   isQuickViewShown = this.shopService.isQuickViewShown;
   toggleQuickViewModel = this.shopService.toggleQuickViewModel;
@@ -29,16 +29,14 @@ export class ProductPageComponent {
   selectedColor: string;
   id: number;
   route = inject(ActivatedRoute);
-  ngOnInit() {
-    console.log(this.id);
-  }
+  
   constructor() {
-    this.id=0
+    this.id = 0;
     this.route.params.subscribe((params) => {
-      this.id = +params['id']-1; // '+' converts string to number 
-    });  
+      this.id = +params['id'] - 1; // '+' converts string to number
+    });
     this.quickViewClickItem = ProductData[this.id];
-    this.name = this.quickViewClickItem.name; 
+    this.name = this.quickViewClickItem.name;
     this.price = this.quickViewClickItem.price;
     this.discountPercent = this.quickViewClickItem.discountPercent;
     this.quantity = this.quickViewClickItem.quantity;
@@ -54,7 +52,10 @@ export class ProductPageComponent {
       this.ordredQuantity = 0;
     }
   }
-
+  ngOnInit(): void {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   increaseOrdredQuantity() {
     if (this.quantity < 1) {
       this.ordredQuantity = 0;

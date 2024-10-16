@@ -1,13 +1,20 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, OnInit, inject } from '@angular/core';
 import ProductData from '../../ProductDatas';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ShopService {
+export class ShopService implements OnInit {
   router = inject(Router);
   constructor() {}
+  ngOnInit(): void {
+    console.log(this.isPopupShown);
+    setTimeout(() => {
+      this.isPopupShown = true;
+    }, 2000);
+  }
+
   // logics for quick shop
   isQuickShopShown: boolean = false;
   quickShopClickItemIndex: number = 0;
@@ -41,9 +48,16 @@ export class ShopService {
     return this.quickViewClickItem[0];
   }
 
+  //logics for popup dialog
+  isPopupShown: boolean = false;
+  togglePopupModel() {
+    this.isPopupShown = !this.isPopupShown;
+    document.body.style.overflow = 'unset';
+  }
+
   //logics for product-details navigation
   navigateToProductDetails(product: any) {
     console.log(product.id);
-    this.router.navigate(['/product',product.id])
+    this.router.navigate(['/product', product.id]);
   }
 }

@@ -1,6 +1,11 @@
 <app-heading></app-heading>
-<!-- <router-outlet />  -->
-<app-popup />
+<router-outlet /> 
+<div
+  class="popup"
+  [ngClass]="[this.shopService.isPopupShown ? 'showPopup' : 'hidePopup']"
+>
+  <app-popup />
+</div>
 
 <!-- <app-product-page/> -->
 <app-footer />:

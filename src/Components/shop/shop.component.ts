@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import ProductData from '../../../src/ProductDatas';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { gsap } from 'gsap';
@@ -26,17 +26,22 @@ gsap.registerPlugin(ScrollTrigger);
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit {
   shopService = inject(ShopService);
   constructor() {
     this.shopService.isQuickShopShown;
     this.shopService.toggleQuickShopModel;
-     
+
     this.shopService.isQuickViewShown;
-    this.shopService.toggleQuickViewModel; 
+    this.shopService.toggleQuickViewModel;
   }
-  addNumber(){
-    console.log("jld")
+  ngOnInit(): void {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  addNumber() {
+    console.log('jld');
   }
   isListed: boolean = true;
   showIn1Column = false;
@@ -60,7 +65,7 @@ export class ShopComponent {
 
   showInList() {
     this.isListed = true;
-    
+
     this.showIn1Column = false;
     this.showIn2Column = false;
     this.showIn3Column = false;

@@ -251,6 +251,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+/* Main Popup Container */
 
 @media (max-width:1024px) {
   .cards {
@@ -264,7 +265,8 @@ body {
 
 @media (max-width:750px) {
   .cards {
-    padding: 1rem .5rem;
+    padding: 1rem 10px;
+    gap:2vw;
     grid-template-columns: 1fr 1fr;
 
   }

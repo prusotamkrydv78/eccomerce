@@ -1,5 +1,10 @@
-<div class="popup">
+
   <div class="popup-content">
+    <div class="close">
+      <button (click)="this.shopService.togglePopupModel()">
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
     <div class="popup-left">
       <h2>Wait! before you leave...</h2>
       <p>Get 15% off for your first order</p>
@@ -21,47 +26,24 @@
         <h3>Recommended Products</h3>
       </div>
       <ul class="product-list">
+        @for (product of RecommendedProduct; track $index) {
+
         <li class="product-item">
-          <img
-            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/jacket-2.jpg?v=1652079734&width=200"
-            alt="Amara Reversible Jacket"
-          />
+          <img src="{{ product.img }}" alt="Amara Reversible Jacket" />
           <div class="product-details">
-            <p>Amara Reversible Jacket</p>
-            <p>¥7,100</p>
+            <p>{{ product.name }}</p>
+            <p>${{ product.price }}</p>
+            <div class="varient">
+              @for (color of product.colors; track $index) {
+              <div class="color" style="opacity: 0.7">
+                <span [style.backgroundColor]="color"></span>
+              </div>
+              }
+            </div>
           </div>
         </li>
-        <li class="product-item">
-          <img
-            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/Spoga-14-Inch-Anti-Slip-Exercise-Yoga-Mat-with-Carrying-Strap-1.jpg?v=1652079752&width=200"
-            alt="Anti Slip Exercise Yoga Mat"
-          />
-          <div class="product-details">
-            <p>Anti Slip Exercise Yoga Mat - Cyan</p>
-            <p>¥1,900 - ¥2,900</p>
-          </div>
-        </li>
-        <li class="product-item">
-          <img
-            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/15_86969b7b-5d15-4d18-8c76-89e2b6cbd99d.jpg?v=1652079659&width=200"
-            alt="Beach Babe - Malibu Bikini"
-          />
-          <div class="product-details">
-            <p>Beach Babe - Malibu Bikini</p>
-            <p>¥5,800</p>
-          </div>
-        </li>
-        <li class="product-item">
-          <img
-            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/19.png?v=1652080245&width=200"
-            alt="Beach Babe - Malibu Bikini"
-          />
-          <div class="product-details">
-            <p>Beach Babe - Malibu Bikini</p>
-            <p>¥5,800</p>
-          </div>
-        </li>
+
+        }
       </ul>
     </div>
-  </div>
-</div>
+  </div>  
