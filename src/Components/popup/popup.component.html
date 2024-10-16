@@ -1,37 +1,67 @@
-<div class="modal-overlay" (click)="closePopup()">
-    <div class="modal-container" (click)="$event.stopPropagation()">
-      <div class="modal-content">
-        <div class="modal-image">
-          <img src="your-image-path" alt="Offer Image" />
+<div class="popup">
+  <div class="popup-content">
+    <div class="popup-left">
+      <h2>Wait! before you leave...</h2>
+      <p>Get 15% off for your first order</p>
+      <div class="cupon">
+        <div class="code-box">
+          <span>CODE15OFF</span>
         </div>
-  
-        <div class="modal-text">
-          <h2>Wait! Before you leave...</h2>
-          <p>Get 15% off for your first order</p>
-          <div class="promo-code">
-            <input type="text" value="CODE15OFF" readonly />
-            <button (click)="copyCode()">Copy</button>
-          </div>
-          <button class="discount-button" (click)="grabDiscount()">
-            GRAB THE DISCOUNT
-          </button>
-        </div>
+        <button class="copy" (click)="copyCode()">
+          <i class="bi bi-copy"></i>
+        </button>
       </div>
-  
-      <div class="recommended-products">
-        <h3>Recommended Products</h3>
-        <ul>
-          <li *ngFor="let product of products">
-            <div class="product">
-              <img [src]="product.image" alt="product.name" />
-              <div>
-                <p>{{ product.name }}</p>
-                <p>{{ product.price }}</p>
-              </div>
-            </div> 
-          </li>
-        </ul>
+      <p>Use above code to get 15% OFF for your first order when checkout</p>
+      <div>
+        <button class="discount-btn">Grab the Discount</button>
       </div>
     </div>
+    <div class="popup-right">
+      <div>
+        <h3>Recommended Products</h3>
+      </div>
+      <ul class="product-list">
+        <li class="product-item">
+          <img
+            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/jacket-2.jpg?v=1652079734&width=200"
+            alt="Amara Reversible Jacket"
+          />
+          <div class="product-details">
+            <p>Amara Reversible Jacket</p>
+            <p>¥7,100</p>
+          </div>
+        </li>
+        <li class="product-item">
+          <img
+            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/Spoga-14-Inch-Anti-Slip-Exercise-Yoga-Mat-with-Carrying-Strap-1.jpg?v=1652079752&width=200"
+            alt="Anti Slip Exercise Yoga Mat"
+          />
+          <div class="product-details">
+            <p>Anti Slip Exercise Yoga Mat - Cyan</p>
+            <p>¥1,900 - ¥2,900</p>
+          </div>
+        </li>
+        <li class="product-item">
+          <img
+            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/15_86969b7b-5d15-4d18-8c76-89e2b6cbd99d.jpg?v=1652079659&width=200"
+            alt="Beach Babe - Malibu Bikini"
+          />
+          <div class="product-details">
+            <p>Beach Babe - Malibu Bikini</p>
+            <p>¥5,800</p>
+          </div>
+        </li>
+        <li class="product-item">
+          <img
+            src="https://demo-kalles-4-1.myshopify.com/cdn/shop/products/19.png?v=1652080245&width=200"
+            alt="Beach Babe - Malibu Bikini"
+          />
+          <div class="product-details">
+            <p>Beach Babe - Malibu Bikini</p>
+            <p>¥5,800</p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  
+</div>
