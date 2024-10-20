@@ -16,10 +16,10 @@
     <div class="buttons">
       @if(sizes.length){
 
-      <div class="size-section" >
+      <div class="size-section">
         <div class="size">
           <label>SIZE: </label>
-          <span style="text-transform: uppercase;">{{ this.selectedSize }}</span>
+          <span style="text-transform: uppercase">{{ this.selectedSize }}</span>
         </div>
         <div class="size-options">
           @for (size of this.sizes; track $index) {
@@ -29,7 +29,6 @@
             style="text-transform: uppercase; font-weight: bold"
             (click)="selectSize(size)"
             [class.selected]="size === this.selectedSize"
-
           >
             {{ size }}
           </button>
@@ -37,10 +36,10 @@
           }
         </div>
       </div>
-      
-    }@else{
+
+      }@else{
       <span>No sizes avaible</span>
-    }
+      }
       <div>
         <div class="edit-section">
           <div class="quantity-section">
@@ -53,7 +52,7 @@
               [(ngModel)]="ordredQuantity"
               id="quantity"
             /> -->
-            <span>{{ordredQuantity}}</span>
+            <span>{{ ordredQuantity }}</span>
             <button (click)="increaseOrdredQuantity()" class="quantity-btn">
               <i class="bi bi-plus"></i>
             </button>
@@ -70,6 +69,11 @@
         </div>
       </div>
     </div>
-    <button class="add-to-cart-btn" (click)="addToCart()">ADD TO CART</button>
+    <button
+      class="add-to-cart-btn"
+      (click)="globalService.addToCart(this.quickShopClickItem[0] || [])"
+    >
+      ADD TO CART
+    </button>
   </div>
 </div>

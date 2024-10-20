@@ -1,3 +1,4 @@
+import { GlobalService } from './../../Services/global/global.service';
 import { Component, inject } from '@angular/core';
 import { ShopService } from '../shopService/shop.service';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class QuickshopComponent {
   shopService = inject(ShopService);
+  globalService = inject(GlobalService)
   quickShopClickItem = this.shopService.quickShopClickItem;
   name = this.quickShopClickItem[0].name;
   price = this.quickShopClickItem[0].price;
@@ -66,8 +68,7 @@ export class QuickshopComponent {
       ordredQuantity: this.ordredQuantity,
       selectedSize: this.selectedSize || '',
     };
-    this.shopService.isQuickShopShown = false;
     // this.shopService.addToCart(this.selectedProduct)
-    console.log(this.selectedProduct);
+ 
   }
 }

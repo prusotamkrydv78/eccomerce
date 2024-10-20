@@ -124,6 +124,7 @@
     class="card"
     id="productCar d"
     style="opacity: 1"
+    (click)="this.shopService.navigateToProductDetails($event, product)"
   >
     <div class="img" style="position: relative">
       <div class="isNew" *ngIf="product.isNew">New</div>
@@ -138,13 +139,16 @@
           <i class="bi bi-shuffle"></i>
         </div>
         <div class="buttons" *ngIf="!isListed">
-          <button (click)="this.shopService.toggleQuickViewModel()">
+          <button (click)="this.shopService.getQuickViewedProduct($index)"
+          (click)="this.shopService.toggleQuickViewModel()"
+          (click)="this.shopService.stopEventPropagation($event)">
             <span>quick view</span>
             <span> <i class="bi bi-eye"></i></span>
           </button>
           <button>
             <span>quick shop</span>
-            <span (click)="this.shopService.toggleQuickShopModel($index)">
+            <span (click)="this.shopService.toggleQuickShopModel($index)"
+            (click)="this.shopService.stopEventPropagation($event)">
               <i class="bi bi-cart3"></i>
             </span>
           </button>
@@ -190,12 +194,16 @@
       <div class="buttons" *ngIf="isListed">
         <button
           (click)="this.shopService.toggleQuickViewModel()"
+          (click)="this.shopService.stopEventPropagation($event)"
           (click)="this.shopService.getQuickViewedProduct($index)"
         >
           <span>quick view</span>
           <span> <i class="bi bi-eye"></i></span>
         </button>
-        <button (click)="this.shopService.toggleQuickShopModel($index)">
+        <button
+          (click)="this.shopService.toggleQuickShopModel($index)"
+          (click)="this.shopService.stopEventPropagation($event)"
+        >
           <span>quick shop</span>
           <span>
             <i class="bi bi-cart3"></i>

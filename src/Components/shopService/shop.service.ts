@@ -1,15 +1,19 @@
 import { Injectable, OnInit, inject } from '@angular/core';
 import ProductData from '../../ProductDatas';
 import { Router } from '@angular/router';
+import { GlobalService } from './../../Services/global/global.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShopService implements OnInit {
   router = inject(Router);
+
+  stopEventPropagation(event: Event) {
+    event.stopPropagation();
+  }
   constructor() {}
   ngOnInit(): void {
-    console.log(this.isPopupShown);
     setTimeout(() => {
       this.isPopupShown = true;
     }, 2000);
@@ -25,7 +29,6 @@ export class ShopService implements OnInit {
     this.quickShopClickItemIndex = index;
     this.quickShopClickItem = ProductData.filter((item: any) => {
       if (item.id == this.quickShopClickItemIndex + 1) {
-        console.log(item);
         return item;
       }
     });
@@ -45,6 +48,7 @@ export class ShopService implements OnInit {
         return item;
       }
     });
+    console.log(this.quickViewClickItem);
     return this.quickViewClickItem[0];
   }
 
@@ -56,8 +60,9 @@ export class ShopService implements OnInit {
   }
 
   //logics for product-details navigation
-  navigateToProductDetails(product: any) {
-    console.log(product.id);
+  navigateToProductDetails(event: Event, product: any) {
+    event.stopPropagation();
+
     this.router.navigate(['/product', product.id]);
   }
 }

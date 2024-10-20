@@ -31,7 +31,7 @@ export class CarouselComponent implements AfterViewInit {
   fristSlide() {
     var carousel = this.elRef.nativeElement.querySelector('#carousel');
     carousel.style.transform = 'translate(0vw)';
-    console.log('first slide');
+   
 
     let tl = gsap.timeline()
     tl.from(".backgroundImg",{
@@ -50,7 +50,7 @@ export class CarouselComponent implements AfterViewInit {
   secondSlide() {
     var carousel = this.elRef.nativeElement.querySelector('#carousel');
     carousel.style.transform = 'translate(-100vw)';
-    console.log('sec slide');
+ 
     
     let tl = gsap.timeline()
     tl.from(".backgroundImg",{
@@ -69,7 +69,7 @@ export class CarouselComponent implements AfterViewInit {
     var carousel = this.elRef.nativeElement.querySelector('#carousel');
     carousel.style.transform = 'translate(-200vw)';
 
-    console.log('thu slide');
+   
     let tl = gsap.timeline()
     tl.from(".backgroundImg",{
       opacity: 0,

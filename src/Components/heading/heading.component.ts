@@ -1,5 +1,6 @@
+import { GlobalService } from './../../Services/global/global.service';
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { gsap } from 'gsap';
@@ -9,37 +10,37 @@ import { gsap } from 'gsap';
   imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './heading.component.html',
   styleUrl: './heading.component.css',
-
 })
-
 export class HeadingComponent implements AfterViewInit {
-  isNavbarShown: boolean = false
+  isNavbarShown: boolean = false;
+  GlobalService = inject(GlobalService); 
+  constructor() { 
+  }
   toggleNavbar() {
-    this.isNavbarShown = !this.isNavbarShown
-    console.log(this.isNavbarShown)
+    this.isNavbarShown = !this.isNavbarShown;
   }
   ngAfterViewInit() {
     this.createTimeline();
   }
   public createTimeline() {
     const tl = gsap.timeline();
-    tl.to(".animateLogo", {
+    tl.to('.animateLogo', {
       opacity: 1,
-      left: "0rem",
+      left: '0rem',
       duration: 1,
-      smoothOrigin: true
-    })
-    gsap.to(".animateIcon", {
+      smoothOrigin: true,
+    });
+    gsap.to('.animateIcon', {
       opacity: 1,
-      right: "0rem",
+      right: '0rem',
       duration: 1,
-      smoothOrigin: true
-    })
-    tl.to("#navItem", {
+      smoothOrigin: true,
+    });
+    tl.to('#navItem', {
       opacity: 1,
-      top: "0rem",
+      top: '0rem',
       duration: 1,
       stagger: 0.1,
-    })
+    });
   }
 }

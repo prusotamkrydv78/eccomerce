@@ -42,7 +42,7 @@
       <li id="mdnavItem"><a routerLink="#">Buy Theme</a></li>
     </ul>
   </nav>
- 
+
   <div class="icons animateIcon">
     <a routerLink="#" class="icon search-icon">
       <i class="bi bi-search"></i>
@@ -54,10 +54,10 @@
       ><i class="bi bi-heart"></i>
       <span class="badge">1</span>
     </a>
-    <a routerLink="#" class="icon cart-icon"
-      ><i class="bi bi-cart3"></i>
-      <span class="badge">1</span>
-    </a>
+    <div class="icon cart-icon" (click)="this.GlobalService.toggleCartPopUP()">
+      <i class="bi bi-cart3"></i>
+      <span class="badge">{{ this.GlobalService.totalCartItemNumber}}</span>
+    </div>
   </div>
 </header>
 <nav class="bottomNavigation">
@@ -71,14 +71,14 @@
     <a routerLink="/shop">
       <i class="bi bi-heart"></i>
       <span>wishlist</span>
-      
+
       <span class="badge">1</span>
     </a>
   </div>
   <div class="shop">
     <a routerLink="/shop">
       <i class="bi bi-cart3"></i>
-      
+
       <span class="badge">1</span>
       <span>cart</span>
     </a>

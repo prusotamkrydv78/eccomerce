@@ -31,8 +31,7 @@ export class QuickviewComponent {
   colors = this.quickViewClickItem.colors;
   selectedSize = this.sizes[0];
   selectedColor = this.colors[0];
-  constructor() {
-    console.log(this.colors)
+  constructor() { 
     this.shopService.toggleQuickShopModel;
     if (this.quantity < 1) {
       this.ordredQuantity = 0;
@@ -87,6 +86,6 @@ export class QuickviewComponent {
     };
     this.shopService.isQuickShopShown = false;
     // this.shopService.addToCart(this.selectedProduct)
-    console.log(this.selectedProduct);
+ 
   }
 }

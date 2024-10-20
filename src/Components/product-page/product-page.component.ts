@@ -45,8 +45,7 @@ export class ProductPageComponent implements OnInit {
     this.sizes = this.quickViewClickItem.sizes;
     this.colors = this.quickViewClickItem.colors;
     this.selectedSize = this.sizes[0];
-    this.selectedColor = this.colors[0];
-    console.log(this.colors);
+    this.selectedColor = this.colors[0]; 
     this.shopService.toggleQuickShopModel;
     if (this.quantity < 1) {
       this.ordredQuantity = 0;
@@ -101,8 +100,7 @@ export class ProductPageComponent implements OnInit {
       selectedSize: this.selectedSize || '',
     };
     this.shopService.isQuickShopShown = false;
-    // this.shopService.addToCart(this.selectedProduct)
-    console.log(this.selectedProduct);
+ 
   }
   x_coordinate = 0;
   y_coordinate = 0;
@@ -126,7 +124,6 @@ export class ProductPageComponent implements OnInit {
     }
     this.transformStyle = `scale(2) translate(${-(
       this.x_coordinate - 100
-    )}px,${-(this.y_coordinate - 160)}px)`;
-    console.log(`Mouse X: ${this.x_coordinate}, Mouse Y: ${this.y_coordinate}`);
+    )}px,${-(this.y_coordinate - 160)}px)`; 
   }
 }

@@ -39,10 +39,7 @@ export class ShopComponent implements OnInit {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-
-  addNumber() {
-    console.log('jld');
-  }
+ 
   isListed: boolean = true;
   showIn1Column = false;
   showIn2Column = false;
@@ -174,8 +171,7 @@ export class ShopComponent implements OnInit {
     if (this.inStockActive) {
       this.ProductData = this.ProductData.filter((item: any) => {
         return item.quantity != 0;
-      });
-      console.log(this.ProductData);
+      }); 
       this.isFilterActive = false;
     } else {
       this.ProductData = this.ProductData;
@@ -193,12 +189,10 @@ export class ShopComponent implements OnInit {
     if (this.inOutOfStockActive) {
       this.ProductData = this.ProductData.filter((item: any) => {
         return item.quantity == 0;
-      });
-      console.log(this.ProductData);
+      }); 
       this.isFilterActive = false;
     } else {
-      this.ProductData = this.ProductData;
-      console.log(this.ProductData);
+      this.ProductData = this.ProductData; 
     }
   }
   //#########################################################################################
@@ -208,11 +202,9 @@ export class ShopComponent implements OnInit {
       let actualPrice = item.price;
       if (item.discountPercent != 0) {
         actualPrice = item.price - (item.discountPercent / 100) * item.price;
-      }
-      console.log(actualPrice);
+      } 
       return actualPrice >= this.minPrice && actualPrice <= this.maxPrice;
-    });
-    console.log(this.ProductData);
+    }); 
     this.isFilterActive = false;
   }
   //#####################################################################

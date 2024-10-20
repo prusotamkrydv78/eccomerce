@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class TrendingComponent implements AfterViewInit  {
   ProductData:any[] = ProductData
-  
+
 
   shopService = inject(ShopService);
   ngAfterViewInit(){
@@ -36,8 +36,7 @@ export class TrendingComponent implements AfterViewInit  {
     }) 
     this.onMouseEnter()
   }
-  onMouseEnter(){
-console.log(this.onMouseEnter)
+  onMouseEnter(){ 
 gsap.from(".bi-heart",{
  color:"red",
  duration:1,

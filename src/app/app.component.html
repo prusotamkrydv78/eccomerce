@@ -1,10 +1,13 @@
 <app-heading></app-heading>
-<router-outlet /> 
-<div
+<router-outlet />
+<!-- <div
   class="popup"
   [ngClass]="[this.shopService.isPopupShown ? 'showPopup' : 'hidePopup']"
 >
   <app-popup />
+</div> -->
+<div class="cart-pop-up" *ngIf="this.GlobalService.isCartPopUp">
+  <app-cart-pop-up />
 </div>
 
 <!-- <app-product-page/> -->

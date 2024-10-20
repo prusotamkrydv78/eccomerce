@@ -11,7 +11,7 @@
       id="productCard"
       (mouseenter)="onMouseEnter()"
       (mouseleave)="onMouseLeave()"
-      (click)="this.shopService.navigateToProductDetails(product)"
+      (click)="this.shopService.navigateToProductDetails($event, product)"
     >
       <div class="img" style="position: relative">
         <div class="isNew" *ngIf="product.isNew">New</div>
@@ -26,11 +26,21 @@
             <i class="bi bi-shuffle"></i>
           </div>
           <div class="buttons">
-            <button>
+            <button
+              (click)="shopService.stopEventPropagation($event)"
+              (click)="this.shopService.toggleQuickViewModel()"
+              (click)="this.shopService.getQuickViewedProduct($index)"
+            >
+              
               <span>quick view</span>
               <span> <i class="bi bi-eye"></i></span>
             </button>
-            <button>
+            <button
+              (click)="shopService.stopEventPropagation($event)"
+              (click)="this.shopService.toggleQuickShopModel($index)"
+              (click)="this.shopService.quickShopClickItem"
+            >
+              
               <span>quick shop</span>
               <span>
                 <i class="bi bi-cart3"></i>

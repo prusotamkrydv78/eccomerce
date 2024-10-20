@@ -18,8 +18,7 @@
 .product-modal-content {
   position: relative;
   text-align: start;
-  background: white;
-  height: 20rem;
+  background: white; 
   width: 23rem;
   padding: 30px;
 }
