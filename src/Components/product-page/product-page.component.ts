@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import ProductData from '../../ProductDatas';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalService } from '../../Services/global/global.service';
 
 @Component({
   selector: 'app-product-page',
@@ -14,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductPageComponent implements OnInit {
   shopService = inject(ShopService);
+  globalService = inject(GlobalService);
   isQuickViewShown = this.shopService.isQuickViewShown;
   toggleQuickViewModel = this.shopService.toggleQuickViewModel;
   quickViewClickItem: any;
@@ -29,7 +31,7 @@ export class ProductPageComponent implements OnInit {
   selectedColor: string;
   id: number;
   route = inject(ActivatedRoute);
-  
+
   constructor() {
     this.id = 0;
     this.route.params.subscribe((params) => {
@@ -45,7 +47,7 @@ export class ProductPageComponent implements OnInit {
     this.sizes = this.quickViewClickItem.sizes;
     this.colors = this.quickViewClickItem.colors;
     this.selectedSize = this.sizes[0];
-    this.selectedColor = this.colors[0]; 
+    this.selectedColor = this.colors[0];
     this.shopService.toggleQuickShopModel;
     if (this.quantity < 1) {
       this.ordredQuantity = 0;
@@ -100,7 +102,6 @@ export class ProductPageComponent implements OnInit {
       selectedSize: this.selectedSize || '',
     };
     this.shopService.isQuickShopShown = false;
- 
   }
   x_coordinate = 0;
   y_coordinate = 0;
@@ -124,6 +125,6 @@ export class ProductPageComponent implements OnInit {
     }
     this.transformStyle = `scale(2) translate(${-(
       this.x_coordinate - 100
-    )}px,${-(this.y_coordinate - 160)}px)`; 
+    )}px,${-(this.y_coordinate - 160)}px)`;
   }
 }

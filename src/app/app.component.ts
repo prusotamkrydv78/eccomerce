@@ -11,6 +11,8 @@ import { ShopService } from '../Components/shopService/shop.service';
 import { CommonModule } from '@angular/common';
 import { CartPopUpComponent } from '../Components/cart-pop-up/cart-pop-up.component';
 import { CarouselComponent } from "../Components/home/crausel/crausel.component";
+import { ToastComponent } from '../Components/toast/toast.component';
+import { ToasteService } from '../Services/toaster/toaste.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +25,8 @@ import { CarouselComponent } from "../Components/home/crausel/crausel.component"
     PopupComponent,
     CommonModule,
     CartPopUpComponent,
-    CarouselComponent
+    CarouselComponent,
+    ToastComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -40,6 +43,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
   shopService = inject(ShopService);
   GlobalService = inject(GlobalService);
+  toastService = inject(ToasteService);
   ngOnInit(): void {
     setTimeout(() => {
       this.shopService.isPopupShown = true;

@@ -1,3 +1,4 @@
+import { ToasteService } from '../toaster/toaste.service';
 import { ShopService } from './../../Components/shopService/shop.service';
 import { inject, Injectable, OnInit } from '@angular/core';
 
@@ -6,6 +7,7 @@ import { inject, Injectable, OnInit } from '@angular/core';
 })
 export class GlobalService implements OnInit {
   shopService = inject(ShopService);
+  toastService = inject(ToasteService);
   isCartPopUp = false;
   addToCartProduct: any;
   cartProduct: any = [];
@@ -28,7 +30,9 @@ export class GlobalService implements OnInit {
     try {
       this.shopService.isQuickShopShown = false;
       if (this.checkDuplicateProduct(product).length != 0) {
-        alert('product is already added to cart');
+        this.toastService.addToCartToastMassage = 'Product is already added'
+        console.log(product)
+        this.toastService.toggleAddToCartToast();
         return;
       }
 
@@ -40,6 +44,7 @@ export class GlobalService implements OnInit {
         JSON.stringify(this.addToCartProduct)
       );
       this.totalCartItemNumber = this.addToCartProduct.length || 0;
+      this.toastService.toggleAddToCartToast();
     } catch (error) {
       console.log('failed to add product', error);
     }
