@@ -9,6 +9,10 @@
 <div class="cart-pop-up" *ngIf="this.GlobalService.isCartPopUp">
   <app-cart-pop-up />
 </div>
-
+<app-toast
+  *ngIf="toastService.showAddToCartToast"
+  [message]="toastService.addToCartToastMassage"
+>
+</app-toast>
 <!-- <app-product-page/> -->
 <app-footer />:

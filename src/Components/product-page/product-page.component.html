@@ -37,13 +37,23 @@
 
             <button
               class="size-btn"
-              style="text-transform: uppercase; font-weight: bold; opacity: 0.7; padding:2px;"
+              style="
+                text-transform: uppercase;
+                font-weight: bold;
+                opacity: 0.7;
+                padding: 2px;
+              "
               (click)="selectColor(color)"
               [class.selectedColor]="color === selectedColor"
             >
               <span
                 [style.background-color]="color"
-                style="display: block; height: 100%; width: 100%; border-radius: 50%;"
+                style="
+                  display: block;
+                  height: 100%;
+                  width: 100%;
+                  border-radius: 50%;
+                "
               ></span>
             </button>
 
@@ -88,7 +98,11 @@
       <div class="addToCart">
         <div>
           <div class="action-buttons">
-            <button class="add-to-cart-btn" (click)="addToCart()">
+            <button
+              class="add-to-cart-btn"
+              (click)="addToCart()"
+              (click)="globalService.addToCart(this.quickViewClickItem || [])"
+            >
               Add to Cart
             </button>
           </div>
