@@ -29,12 +29,16 @@ export class GlobalService implements OnInit {
   addToCart(product: any) {
     try {
       this.shopService.isQuickShopShown = false;
+      this.isCartPopUp = true
+      document.body.style.overflowY='hidden'
       if (this.checkDuplicateProduct(product).length != 0) {
         this.toastService.addToCartToastMassage = 'Product is already added'
         console.log(product)
         this.toastService.toggleAddToCartToast();
         return;
       }
+      
+        this.toastService.addToCartToastMassage = 'Product is added'
 
       this.cartProduct = localStorage.getItem('addToCartProducts');
       this.cartItems = JSON.parse(this.cartProduct);
@@ -54,7 +58,7 @@ export class GlobalService implements OnInit {
     if (this.isCartPopUp) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = 'unset';
     }
   }
   checkDuplicateProduct(item: any) {

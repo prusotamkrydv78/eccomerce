@@ -205,7 +205,8 @@ p {
     top: 5px;
   }
   .popup-right {
-    overflow: unset;
+    overflow-x: hidden;
+    overflow-y: unset;
     height:auto;
   }
 }

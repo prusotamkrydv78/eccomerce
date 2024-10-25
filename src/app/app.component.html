@@ -6,7 +6,12 @@
 >
   <app-popup />
 </div> -->
-<div class="cart-pop-up" *ngIf="this.GlobalService.isCartPopUp">
+<div
+  class="cart-pop-up"
+  *ngIf="this.GlobalService.isCartPopUp"
+  (click)="this.GlobalService.toggleCartPopUP()"
+  (click)="this.shopService.stopEventPropagation($event)"
+>
   <app-cart-pop-up />
 </div>
 <app-toast

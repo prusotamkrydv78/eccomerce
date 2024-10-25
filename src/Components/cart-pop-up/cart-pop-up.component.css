@@ -3,7 +3,7 @@
   width: 350px;
   background-color: #fff;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 999999999;
   top: 0;
   right: 0;
@@ -34,6 +34,9 @@
 
 .cart-items {
   margin-bottom: 20px;
+  
+  height: 50vh;
+  overflow-y: scroll;
 }
 
 .cart-item {

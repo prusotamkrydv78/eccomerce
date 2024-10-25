@@ -56,7 +56,7 @@ export class ShopService implements OnInit {
   isPopupShown: boolean = false;
   togglePopupModel() {
     this.isPopupShown = !this.isPopupShown;
-    document.body.style.overflow = 'unset';
+    document.body.style.overflowY = 'unset';
   }
 
   //logics for product-details navigation

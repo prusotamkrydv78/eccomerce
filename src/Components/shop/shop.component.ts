@@ -130,14 +130,14 @@ export class ShopComponent implements OnInit {
       this.isFilterActive = true;
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = 'unset';
     }
   }
 
   closeFilter() {
     this.isFilterActive = false;
     this.isFilterDisplayed = false;
-    document.body.style.overflow = 'unset';
+    document.body.style.overflowY = 'unset';
   }
   stopEventPropagation(event: Event) {
     event.stopPropagation();

@@ -22,7 +22,7 @@
 
 .cart-pop-up{
   display: flex;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100%;
   background: #00000066;
