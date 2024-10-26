@@ -105,7 +105,11 @@
           </div>
 
           <div class="more">
-            <button><i class="bi-heart"></i></button>
+            <button
+              (click)="GlobalService.addToFav(this.quickViewClickItem || [])"
+            >
+              <i class="bi-heart"></i>
+            </button>
           </div>
           <div class="more">
             <button><i class="bi bi-shuffle"></i></button>

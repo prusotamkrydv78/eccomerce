@@ -59,7 +59,7 @@
           </div>
 
           <div class="actions">
-            <button class="action-btn wishlist">
+            <button class="action-btn wishlist" (click)="globalService.addToFav(this.quickShopClickItem[0] || [])">
               <i class="bi bi-heart"></i>
             </button>
             <button class="action-btn compare">

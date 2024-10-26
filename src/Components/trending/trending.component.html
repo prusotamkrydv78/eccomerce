@@ -9,8 +9,6 @@
     <div
       class="card"
       id="productCard"
-      (mouseenter)="onMouseEnter()"
-      (mouseleave)="onMouseLeave()"
       (click)="this.shopService.navigateToProductDetails($event, product)"
     >
       <div class="img" style="position: relative">
@@ -21,8 +19,11 @@
         </div>
         <img src="{{ product.img }}" alt="" />
         <div class="hoverEffect">
-          <div class="icons">
-            <i class="bi bi-heart box"></i>
+          <div
+            class="icons"
+            (click)="this.shopService.stopEventPropagation($event)"
+          
+          > 
             <i class="bi bi-shuffle"></i>
           </div>
           <div class="buttons">
@@ -31,16 +32,14 @@
               (click)="this.shopService.toggleQuickViewModel()"
               (click)="this.shopService.getQuickViewedProduct($index)"
             >
-              
               <span>quick view</span>
               <span> <i class="bi bi-eye"></i></span>
             </button>
             <button
               (click)="shopService.stopEventPropagation($event)"
               (click)="this.shopService.toggleQuickShopModel($index)"
-              (click)="this.shopService.quickShopClickItem"
+              (click)="(this.shopService.quickShopClickItem)"
             >
-              
               <span>quick shop</span>
               <span>
                 <i class="bi bi-cart3"></i>

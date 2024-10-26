@@ -13,6 +13,7 @@ import { CartPopUpComponent } from '../Components/cart-pop-up/cart-pop-up.compon
 import { CarouselComponent } from "../Components/home/crausel/crausel.component";
 import { ToastComponent } from '../Components/toast/toast.component';
 import { ToasteService } from '../Services/toaster/toaste.service';
+import { FavoritePageComponent } from '../Components/favorite-page/favorite-page.component';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,8 @@ import { ToasteService } from '../Services/toaster/toaste.service';
     CommonModule,
     CartPopUpComponent,
     CarouselComponent,
-    ToastComponent
+    ToastComponent,
+    FavoritePageComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

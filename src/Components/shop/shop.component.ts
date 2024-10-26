@@ -1,3 +1,4 @@
+import { GlobalService } from './../../Services/global/global.service';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import ProductData from '../../../src/ProductDatas';
 import { CommonModule, CurrencyPipe } from '@angular/common';
@@ -28,6 +29,7 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class ShopComponent implements OnInit {
   shopService = inject(ShopService);
+  GlobalService = inject(GlobalService)
   constructor() {
     this.shopService.isQuickShopShown;
     this.shopService.toggleQuickShopModel;

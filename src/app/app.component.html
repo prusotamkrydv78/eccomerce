@@ -12,7 +12,16 @@
   (click)="this.GlobalService.toggleCartPopUP()"
   (click)="this.shopService.stopEventPropagation($event)"
 >
-  <app-cart-pop-up />
+  <app-cart-pop-up (click)="this.shopService.stopEventPropagation($event)" />
+</div>
+
+<div
+  class="cart-pop-up"
+  *ngIf="this.GlobalService.isFavPopUp"
+  (click)="this.GlobalService.toggleFavPopUP()"
+  (click)="this.shopService.stopEventPropagation($event)"
+>
+  <app-favorite-page (click)="this.shopService.stopEventPropagation($event)" />
 </div>
 <app-toast
   *ngIf="toastService.showAddToCartToast"

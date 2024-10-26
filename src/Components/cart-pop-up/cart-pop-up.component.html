@@ -15,7 +15,8 @@
   </div>
   <h3 class="free-shipping">Congratulations! You've got free shipping!</h3>
   <div class="cart-items">
-    <div class="cart-item" *ngFor="let item of this.GlobalService.addToCartProduct">
+    @for (item of this.GlobalService.addToCartProduct; track $index) {
+    <div class="cart-item">
       <img [src]="item.img" alt="item image" />
       <div class="funtion">
         <div class="item-details">
@@ -36,6 +37,11 @@
         </button>
       </div>
     </div>
+    }@empty {
+    <div>
+      <h3 style="text-align: center">Your Favorites list is empty</h3>
+    </div>
+    }
   </div>
   <div class="checkout">
     <p>Subtotal: ¥{{ calculateSubtotal() }}</p>

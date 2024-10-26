@@ -1,0 +1,125 @@
+/* shopping-cart.component.css */
+.shopping-cart {
+    width: 350px;
+    background-color: #fff;
+    height: 100vh;
+    position: fixed;
+    z-index: 999999999;
+    top: 0;
+    right: 0;
+    overflow-y: scroll;
+  }
+  .shopping-cart h2 {
+    margin: 10px 0;
+  
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.51px;
+  }
+  .close{
+    cursor: pointer;
+  }
+  .free-shipping {
+    color: #00000094;
+    font-size: 14px;
+    margin: 0;
+    padding: 16px 16px;
+    font-weight: 500;
+    border: 1px solid #c6c4c461;
+    border-left: none;
+    border-right: none;
+    box-shadow: 1px 0px 16px -2px #d1d1d152;
+  }
+  
+  .cart-items {
+    margin-bottom: 20px;
+    
+    height: auto; 
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: scale-down;
+  }
+  
+  .item-details h4 {
+    font-size: 14px;
+    margin: 0;
+  
+    font-weight: 500;
+  }
+  
+  .item-details p {
+    font-size: 18px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .item-quantity {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px 0;
+    border-radius: 50px;
+    width: 6rem;
+  }
+  
+  .item-quantity button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-item {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .checkout {
+    text-align: center;
+  }
+  
+  .checkout p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .view-cart,
+  .checkout-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .checkout-btn {
+    background-color: #007bff;
+  }
+  @media (max-width:768px) {
+    .shopping-cart{
+      width: 100vw;
+    }
+    .cart-items{
+      height: 73vh;
+      overflow: scroll;
+    }
+    
+  }

@@ -1,3 +1,5 @@
+import { GlobalService } from './../../Services/global/global.service';
+ 
 import {  AfterViewInit, Component, inject } from '@angular/core';
 import ProductData from '../../../src/ProductDatas'
 import { FormsModule } from '@angular/forms';
@@ -16,9 +18,10 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class TrendingComponent implements AfterViewInit  {
   ProductData:any[] = ProductData
+  shopService = inject(ShopService)
 
 
-  shopService = inject(ShopService);
+  GlobalService = inject(GlobalService);
   ngAfterViewInit(){
     gsap.to("#productCard",{
       opacity:1,
@@ -33,25 +36,9 @@ export class TrendingComponent implements AfterViewInit  {
          toggleActions: 'play none none reverse',  
             scrub: 1, 
       }
-    }) 
-    this.onMouseEnter()
+    })  
   }
-  onMouseEnter(){ 
-gsap.from(".bi-heart",{
- color:"red",
- duration:1,
- x:-50,
- opacity:0, 
-})
-  }
-  onMouseLeave(){
-    gsap.to(".bi-heart",{
-      color:"white",
-      duration:1,
-      x:0,
-      opacity:1, 
-     })
-  }
+   
  
    
   

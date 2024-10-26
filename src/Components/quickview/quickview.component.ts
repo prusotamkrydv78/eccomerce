@@ -1,3 +1,4 @@
+import { GlobalService } from './../../Services/global/global.service';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,7 @@ import { ShopService } from '../shopService/shop.service';
 })
 export class QuickviewComponent {
   shopService = inject(ShopService)
+  GlobalService =inject(GlobalService)
   isQuickViewShown = this.shopService.isQuickViewShown;
   toggleQuickViewModel = this.shopService.toggleQuickViewModel
   quickViewClickItem = this.shopService.quickViewClickItem[0];

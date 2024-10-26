@@ -49,10 +49,7 @@
   align-items: center;
   color: white;
   text-align: center;
-  background: rgba(0,
-      0,
-      0,
-      0.5);
+  background: rgba(0, 0, 0, 0.5);
   /* Semi-transparent background for readability */
 }
 
@@ -70,11 +67,11 @@
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
-  transition: .3s linear;
+  transition: 0.3s linear;
 }
 
 .filter-button:hover {
-  color: #56CFE0;
+  color: #56cfe0;
 }
 
 .view-icons {
@@ -113,7 +110,7 @@
   display: block;
   width: 10px;
   background: #878787;
-  transition: .3s linear;
+  transition: 0.3s linear;
 }
 
 .alignment:first-child span {
@@ -133,8 +130,6 @@
   display: grid;
   gap: 0;
   grid-template-columns: 1fr;
-  
-  overflow-x: hidden;
 }
 
 .card {
@@ -147,7 +142,7 @@
   color: RGB(135, 135, 135);
 }
 
-.card>div:first-child {
+.card > div:first-child {
   height: 100%;
 }
 
@@ -168,17 +163,15 @@
   justify-content: center;
 }
 
-.cards .buttons>button:first-child {
-  color: #56CFE0;
-  border: 1px solid #56CFE0;
-
+.cards .buttons > button:first-child {
+  color: #56cfe0;
+  border: 1px solid #56cfe0;
 }
 
-.cards .buttons>button:last-child {
+.cards .buttons > button:last-child {
   color: #fff;
-  border-color: #56CFE0;
-  background: #56CFE0;
-
+  border-color: #56cfe0;
+  background: #56cfe0;
 }
 
 .activeCol {
@@ -196,7 +189,7 @@
 .showIn1Column .card .price {
   display: flex;
   gap: 40px;
-}  
+}
 
 .showIn1Column .card {
   flex-direction: column;
@@ -225,7 +218,7 @@
   color: RGB(135, 135, 135);
 }
 
-.showIn2Column .card>div:first-child {
+.showIn2Column .card > div:first-child {
   height: 90%;
 }
 
@@ -235,10 +228,9 @@
   object-fit: cover;
 }
 
-.showIn2Column .buttons>button:first-child {
+.showIn2Column .buttons > button:first-child {
   color: black;
   border: none;
-
 }
 
 /* style to show the cards in 3 column */
@@ -257,7 +249,7 @@
   color: RGB(135, 135, 135);
 }
 
-.showIn3Column .card>div:first-child {
+.showIn3Column .card > div:first-child {
   height: 90%;
 }
 
@@ -267,12 +259,10 @@
   object-fit: cover;
 }
 
-.showIn3Column .buttons>button:first-child {
+.showIn3Column .buttons > button:first-child {
   color: black;
   border: none;
-
 }
-
 
 /* style to show the cards in 4 column */
 .showIn4Column {
@@ -290,7 +280,7 @@
   color: RGB(135, 135, 135);
 }
 
-.showIn4Column .card>div:first-child {
+.showIn4Column .card > div:first-child {
   height: 90%;
 }
 
@@ -300,12 +290,10 @@
   object-fit: cover;
 }
 
-.showIn4Column .buttons>button:first-child {
+.showIn4Column .buttons > button:first-child {
   color: black;
   border: none;
-
 }
-
 
 /* style to show the cards in 5 column */
 .showIn5Column {
@@ -325,7 +313,7 @@
   font-weight: normal;
 }
 
-.showIn5Column .card>div:first-child {
+.showIn5Column .card > div:first-child {
   height: 90%;
 }
 
@@ -339,10 +327,9 @@
   object-fit: cover;
 }
 
-.showIn5Column .buttons>button:first-child {
+.showIn5Column .buttons > button:first-child {
   color: black;
   border: none;
-
 }
 
 .showIn5Column .buttons button {
@@ -365,7 +352,6 @@
   width: 8rem;
 }
 
-
 /* style to show the cards in6 column */
 .showIn6Column {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -384,7 +370,7 @@
   color: RGB(135, 135, 135);
 }
 
-.showIn6Column .card>div:first-child {
+.showIn6Column .card > div:first-child {
   height: 90%;
 }
 
@@ -398,12 +384,10 @@
   object-fit: cover;
 }
 
-.showIn6Column .buttons>button:first-child {
+.showIn6Column .buttons > button:first-child {
   color: black;
   border: none;
-
 }
-
 
 .showIn6Column .buttons button {
   border: none;
@@ -425,7 +409,6 @@
   width: 8rem;
 }
 
-
 /* filter stles */
 
 .filter {
@@ -437,8 +420,6 @@
   z-index: 999;
 }
 
-
-
 .filter-sidebar {
   width: 350px;
   height: 100vh;
@@ -447,7 +428,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.filter-sidebar>div {
+.filter-sidebar > div {
   padding: 15px;
   border-bottom: 1px solid rgb(174 174 174 / 71%);
 }
@@ -493,7 +474,7 @@
 }
 
 .filter-section h5::after {
-  content: '';
+  content: "";
   position: absolute;
   background: black;
   width: 20%;
@@ -506,12 +487,12 @@
   display: block;
   margin-bottom: 5px;
   font-size: 0.875rem;
-  transition: .3s linear;
+  transition: 0.3s linear;
   cursor: pointer;
 }
 
 .filter-section label:hover {
-  color: #56CFE0;
+  color: #56cfe0;
 }
 
 .color-box {
@@ -567,7 +548,6 @@ button.close-btn {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-
 }
 
 button.btn-primary {
@@ -577,17 +557,17 @@ button.btn-primary {
   background: white;
   cursor: pointer;
   border-radius: 50px;
-  transition: .3s linear;
+  transition: 0.3s linear;
 }
 
 button.btn-primary:hover {
-  background: #56CFE1;
+  background: #56cfe1;
   color: #fff;
-  border-color: #56CFE1;
+  border-color: #56cfe1;
 }
 
 .mdc-slider__track--active_fill {
-  background-color: #56CFE1 !important;
+  background-color: #56cfe1 !important;
 }
 
 .mdc-slider__thumb-knob {
@@ -598,21 +578,20 @@ button.btn-primary:hover {
   display: flex;
 }
 
-.view-icons .showIn1Column  span {
+.view-icons .showIn1Column span {
   width: 20px !important;
 }
 .showIn1Column .card .about-product span {
-  
   width: 15px !important;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .controls {
     margin: 2vw 0;
   }
-.card{
-  padding:16px 5px !important;
-}
+  .card {
+    padding: 16px 5px !important;
+  }
   .alignment {
     display: none;
   }
@@ -660,7 +639,7 @@ button.btn-primary:hover {
     height: auto;
   }
 
-  .showIn2Column .card>div:first-child {
+  .showIn2Column .card > div:first-child {
     height: auto;
   }
 }
